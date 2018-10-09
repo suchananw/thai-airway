@@ -1,0 +1,62 @@
+
+table {
+  width: 780px;
+  border-collapse: collapse;
+}
+
+td, th {
+  /* border: 1px solid  grey; */
+  height: 25px;
+  border-collapse: collapse;
+}
+
+body {
+  padding: 20px;
+  font-family: 'Assistant';
+}
+
+.table {
+  margin: 10px 0px;
+  border: 1px solid  grey;
+}
+
+.tablelabel {
+  padding-left: 5px;
+  text-transform: uppercase;
+  width: 220px;
+}
+
+.tablehead th {
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid  grey;
+}
+
+.title {
+  padding-left: 20%;
+  text-transform: uppercase;
+}
+
+.tablefill {
+  text-align: center;
+  width: 160px;
+  text-decoration-line: underline;
+  border-right:  1px solid  grey;
+}
+
+.fill {
+  text-align: center;
+  text-decoration-line: underline;
+}
+
+.remarktable {
+  table-layout: fixed;
+}
+
+.remarkhead {
+  text-align: left;
+}
+
+.remarkspace {
+  word-wrap:break-word;
+}
