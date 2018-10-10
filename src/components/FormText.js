@@ -9,9 +9,9 @@ export default class FormText extends Component {
     }
     
     return (
-      <div class={`form-group col-md-${span} mb-3`}>
-        <label>{label}</label>
-        <input type="text" class="form-control mx-3" />
+      <div class={`form-group col-md-${span} text-left`}>
+        <label class="text-uppercase">{label}</label>
+        <input type="text" class="form-control" />
       </div>
     );
   }
