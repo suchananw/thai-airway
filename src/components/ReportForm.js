@@ -10,9 +10,13 @@ export default class ReportForm extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      Date: moment()
+      Date: moment(),
+      Remark: ''
     };
     this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleRemarkChange = this.handleRemarkChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
 
   iterateFormtext(labels) {
@@ -23,9 +27,16 @@ export default class ReportForm extends Component {
   }
 
   handleDateChange(date){
-    this.setState({
-      Date: date
-    })
+    this.setState({Date: date})
+  }
+
+  handleRemarkChange(event) {
+    this.setState({remark: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('Form was submitted');
+    event.preventDefault();
   }
 
   render () {
@@ -34,7 +45,7 @@ export default class ReportForm extends Component {
 
     return (
         <div class="container w-75 p-4">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div class="form-row">
               <FormText label="FROM" span="4"/>
               <FormText label="GROUP" span="4"/>
@@ -50,8 +61,8 @@ export default class ReportForm extends Component {
               <FormText label="A/C TYPE" span="3"/>
             </div>
             <div class="form-row border rounded mw-75 my-3">
-              <div class="col border-right border-bottom p-2">ARRIVAL</div>
-              <div class="col border-bottom p-2">DEPARTURE</div>
+              <div class="col border-right border-bottom bg-info text-white p-2">ARRIVAL</div>
+              <div class="col border-bottom bg-info text-white p-2">DEPARTURE</div>
               <div class="w-100"></div>
               <div class="col border-right p-3">
                 <FormText label="port of origin" span="12"/>
@@ -109,6 +120,24 @@ export default class ReportForm extends Component {
               <FormCheck label="BOARDING BY PRIORITY" id="checkyes1" span="6"/>
               <FormCheck label="BOARDING BY ROWS" id="checkyes2" span="6"/>
             </div>
+            <div class="form-row">
+              <FormText label="SPECIAL CASE ( ARR / DEP )" span="7"/>
+              <FormText label="HANDLED BY	" span="5"/>
+            </div>
+            <div class="form-row">
+              <FormText label="KO" span="3"/>
+              <FormText label="KO-B" span="3"/>
+              <FormText label="LCS" span="3"/>
+              <FormText label="CSS / GATE LEADER" span="3"/>
+            </div>
+            <div class="form-row">
+              <div class="form-group text-left col-sm-12">
+                <label class="text-uppercase"><u><strong>
+                REMARKS / IRREGULARITIES :</strong></u></label>
+                <textarea class="form-control" id="remark" rows="7" value={this.state.remark} onChange={this.handleRemarkChange}></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-info">Submit</button>
           </form>
         </div>
     );
