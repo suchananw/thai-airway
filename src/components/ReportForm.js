@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import FormText from './FormText'
+import FormCheck from './FormCheck'
 import 'react-datepicker/dist/react-datepicker.css';
 import './ReportForm.css'
 
@@ -100,6 +101,13 @@ export default class ReportForm extends Component {
             <div class="form-row">
               <FormText label="RESTRICTED ITEM COLLECTED BY" span="9"/>
               <FormText label="TOTAL (PCS)" span="2"/>
+            </div>
+            <div class="form-row">
+              <FormText label="DOCUMENT : CHECKED / MATCHED BY" span="12"/>
+            </div>
+            <div class="form-row">
+              <FormCheck label="BOARDING BY PRIORITY" id="checkyes1" span="6"/>
+              <FormCheck label="BOARDING BY ROWS" id="checkyes2" span="6"/>
             </div>
           </form>
         </div>
