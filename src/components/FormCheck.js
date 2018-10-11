@@ -14,13 +14,13 @@ export default class FormCheck extends Component {
         <div class="col-sm-6">
           <label class="text-uppercase">{label}</label>
         </div>
-        <div class="custom-control custom-radio custom-control-inline col-sm-3">
-          <input type="radio" id="radioInline1" name="radioInline1" class="custom-control-input"/>
-          <label class="custom-control-label">YES</label>
+        <div class="form-check radio-inline col-sm-3">
+          <input type="radio" id={`${id}_yes`} name={id} class="form-check-input"/>
+          <label class="form-check-label">YES</label>
         </div>
-        <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" id="radioInline2" name="radioInline1" class="custom-control-input"/>
-          <label class="custom-control-label">NO</label>
+        <div class="form-check radio-inline">
+          <input type="radio" id={`${id}_no`} name={id} class="form-check-input"/>
+          <label class="form-check-label">NO</label>
         </div>
       </div>
     );

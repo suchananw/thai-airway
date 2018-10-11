@@ -117,8 +117,8 @@ export default class ReportForm extends Component {
               <FormText label="DOCUMENT : CHECKED / MATCHED BY" span="12"/>
             </div>
             <div class="form-row">
-              <FormCheck label="BOARDING BY PRIORITY" id="checkyes1" span="6"/>
-              <FormCheck label="BOARDING BY ROWS" id="checkyes2" span="6"/>
+              <FormCheck label="BOARDING BY PRIORITY" id="radio1" span="6"/>
+              <FormCheck label="BOARDING BY ROWS" id="radio2" span="6"/>
             </div>
             <div class="form-row">
               <FormText label="SPECIAL CASE ( ARR / DEP )" span="7"/>
@@ -137,7 +137,6 @@ export default class ReportForm extends Component {
                 <textarea class="form-control" id="remark" rows="7" value={this.state.remark} onChange={this.handleRemarkChange}></textarea>
               </div>
             </div>
-            <button type="submit" class="btn btn-info">Submit</button>
           </form>
         </div>
     );
