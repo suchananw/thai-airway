@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/thai-airway/precache-manifest.31370c9dd0a18b87edbf590d26389d18.js"
+  "/thai-airway/precache-manifest.abe19213f93adb24b3518dc02b187149.js"
 );
 
 workbox.clientsClaim();
