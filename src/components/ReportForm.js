@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import FormText from './FormText'
-import FormCheck from './FormCheck'
+import FormCheck from './FormRadio'
 import 'react-datepicker/dist/react-datepicker.css';
 import './ReportForm.css'
 
@@ -61,10 +61,8 @@ export default class ReportForm extends Component {
               <FormText label="A/C TYPE" span="3"/>
             </div>
             <div class="form-row border rounded mw-75 my-3">
-              <div class="col border-right border-bottom bg-info text-white p-2">ARRIVAL</div>
-              <div class="col border-bottom bg-info text-white p-2">DEPARTURE</div>
-              <div class="w-100"></div>
-              <div class="col border-right p-3">
+              <div class="col border-right">
+              <div class="col border-right border-bottom bg-info text-white mb-3 p-3">ARRIVAL</div>
                 <FormText label="port of origin" span="12"/>
                 <div class="form-group form-row px-3 mb-0">
                   <FormText label="STA" span="4"/>
@@ -73,7 +71,8 @@ export default class ReportForm extends Component {
                 </div>
                 {this.iterateFormtext(label1)}
               </div>
-              <div class="col p-3">
+              <div class="col">
+                <div class="col border-bottom bg-info text-white mb-3 p-3">DEPARTURE</div>
                 <FormText label="port of destination" span="12"/>
                 <div class="form-group form-row px-3 mb-0">
                   <FormText label="STA" span="4"/>
