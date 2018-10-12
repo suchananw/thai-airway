@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import ReportForm from './components/ReportForm';
 import ChecklistForm from './components/ChecklistForm';
-import { isMoment } from 'C:/Users/Suchanan W/AppData/Local/Microsoft/TypeScript/3.0/node_modules/moment/moment';
 
 class App extends Component {
   constructor() {
