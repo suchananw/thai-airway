@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import FormCheck from './FormCheck'
 
 export default class ChecklistForm extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      remark: ''
+    };
+  }
 
   iterateFormCheck(labels) {
     let forms = labels.map((label) => {
@@ -47,7 +53,7 @@ export default class ChecklistForm extends Component {
           <div class="form-row">
             <div class="form-group text-left col-sm-12">
               <label class="text-uppercase"><u><strong>REMARKS / IRREGULARITIES :</strong></u></label>
-              <textarea class="form-control" id="remark" rows="10" value={this.state.remark} 
+              <textarea class="form-control" id="remark2" rows="10" value={this.state.remark} 
               onChange={this.handleRemarkChange}></textarea>
             </div>
           </div>
