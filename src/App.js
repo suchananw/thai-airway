@@ -9,11 +9,18 @@ class App extends Component {
     this.state = {
       page: 'report'
     }
+
   }
 
-  handleNext(){
+  handleNext = () => {
     this.setState({
       page: 'checklist'
+    })
+  }
+
+  handleBack = () => {
+    this.setState({
+      page: 'report'
     })
   }
 
@@ -31,7 +38,7 @@ class App extends Component {
         :(this.state.page==='checklist')
           ?<div class="m-3">
             <ChecklistForm />
-            <button type="submit" class="btn btn-info mx-2">Back</button>
+            <button onClick={this.handleBack} type="submit" class="btn btn-info mx-2">Back</button>
             <button type="submit" class="btn btn-info mx-2">Submit</button>
           </div>
           :<div>Loading ...</div>

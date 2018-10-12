@@ -10,7 +10,7 @@ export default class FormCheck extends Component {
     }
     
     return (
-      <div class={`form-group form-check col-md-${span} text-left`}>
+      <div class={`form-group form-check col-md-${span} text-left mx-3`}>
         <input class="form-check-input" type="checkbox" value="" id={id}/>
         <label class="form-check-label">
           {label}
