@@ -13,28 +13,24 @@ export default class ReportForm extends Component {
       Date: moment(),
       Remark: ''
     };
-    this.handleDateChange = this.handleDateChange.bind(this);
-    this.handleRemarkChange = this.handleRemarkChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    
   }
 
-  iterateFormtext(labels) {
+  iterateFormtext = (labels) => {
     let forms = labels.map((label) => {
       return <FormText label={label} span="12"/>
     })
     return forms
   }
 
-  handleDateChange(date){
+  handleDateChange = (date) => {
     this.setState({Date: date})
   }
 
-  handleRemarkChange(event) {
+  handleRemarkChange = (event) => {
     this.setState({remark: event.target.value});
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     alert('Form was submitted');
     event.preventDefault();
   }
@@ -131,9 +127,9 @@ export default class ReportForm extends Component {
             </div>
             <div class="form-row">
               <div class="form-group text-left col-sm-12">
-                <label class="text-uppercase"><u><strong>
-                REMARKS / IRREGULARITIES :</strong></u></label>
-                <textarea class="form-control" id="remark" rows="7" value={this.state.remark} onChange={this.handleRemarkChange}></textarea>
+                <label class="text-uppercase"><u><strong>REMARKS / IRREGULARITIES :</strong></u></label>
+                <textarea class="form-control" id="remark" rows="7" value={this.state.remark} 
+                onChange={this.handleRemarkChange}></textarea>
               </div>
             </div>
           </form>

@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import './App.css';
 import ReportForm from './components/ReportForm';
 import ChecklistForm from './components/ChecklistForm';
+import { isMoment } from 'C:/Users/Suchanan W/AppData/Local/Microsoft/TypeScript/3.0/node_modules/moment/moment';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      page: 'report'
+      page: 'report',
+      report: {},
+      checklist: {}
     }
-
   }
 
   handleNext = () => {
@@ -22,6 +24,10 @@ class App extends Component {
     this.setState({
       page: 'report'
     })
+  }
+
+  handleSubmit = () => {
+    
   }
 
   render() {
@@ -39,7 +45,7 @@ class App extends Component {
           ?<div class="m-3">
             <ChecklistForm />
             <button onClick={this.handleBack} type="submit" class="btn btn-info mx-2">Back</button>
-            <button type="submit" class="btn btn-info mx-2">Submit</button>
+            <button onClick={this.handleSubmit} type="submit" class="btn btn-info mx-2">Submit</button>
           </div>
           :<div>Loading ...</div>
         }

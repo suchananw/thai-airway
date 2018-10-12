@@ -37,13 +37,20 @@ export default class ChecklistForm extends Component {
           <div class="form-row border rounded mw-75 my-3">
             <div class="col border-right">
               <div class="col border-right border-bottom bg-info text-white mb-3 p-3">ARRIVAL</div>
-                {this.iterateFormCheck(label1)}
-              </div>
-              <div class="col ">
-                <div class="col border-bottom bg-info text-white mb-3 p-3">DEPARTURE</div>
-                {this.iterateFormCheck(label2)}
-              </div>
+              {this.iterateFormCheck(label1)}
             </div>
+            <div class="col">
+              <div class="col border-bottom bg-info text-white mb-3 p-3">DEPARTURE</div>
+              {this.iterateFormCheck(label2)}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group text-left col-sm-12">
+              <label class="text-uppercase"><u><strong>REMARKS / IRREGULARITIES :</strong></u></label>
+              <textarea class="form-control" id="remark" rows="10" value={this.state.remark} 
+              onChange={this.handleRemarkChange}></textarea>
+            </div>
+          </div>
         </form>
       </div>
     );
