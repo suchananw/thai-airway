@@ -7,8 +7,14 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      page: 'checklist'
+      page: 'report'
     }
+  }
+
+  handleNext(){
+    this.setState({
+      page: 'checklist'
+    })
   }
 
   render() {
@@ -20,7 +26,7 @@ class App extends Component {
         {(this.state.page==='report')
         ?<div class="m-3">
           <ReportForm />
-          <button type="submit" class="btn btn-info">Next</button>
+          <button onClick={this.handleNext} type="submit" class="btn btn-info">Next</button>
         </div>
         :(this.state.page==='checklist')
           ?<div class="m-3">
