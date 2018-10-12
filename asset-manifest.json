@@ -1,7 +1,7 @@
 {
   "main.css": "/thai-airway/static/css/main.dd97b4fe.chunk.css",
-  "main.js": "/thai-airway/static/js/main.6d5ea83e.chunk.js",
-  "main.js.map": "/thai-airway/static/js/main.6d5ea83e.chunk.js.map",
+  "main.js": "/thai-airway/static/js/main.3891f46a.chunk.js",
+  "main.js.map": "/thai-airway/static/js/main.3891f46a.chunk.js.map",
   "static/css/1.8e0eef91.chunk.css": "/thai-airway/static/css/1.8e0eef91.chunk.css",
   "static/js/1.b23f6b03.chunk.js": "/thai-airway/static/js/1.b23f6b03.chunk.js",
   "static/js/1.b23f6b03.chunk.js.map": "/thai-airway/static/js/1.b23f6b03.chunk.js.map",
@@ -10,6 +10,6 @@
   "static/css/1.8e0eef91.chunk.css.map": "/thai-airway/static/css/1.8e0eef91.chunk.css.map",
   "static/css/main.dd97b4fe.chunk.css.map": "/thai-airway/static/css/main.dd97b4fe.chunk.css.map",
   "index.html": "/thai-airway/index.html",
-  "precache-manifest.d2958625904b1a77514b6ebe8b1e45e2.js": "/thai-airway/precache-manifest.d2958625904b1a77514b6ebe8b1e45e2.js",
+  "precache-manifest.2c895a1a7c8151082e3f0f9651a24964.js": "/thai-airway/precache-manifest.2c895a1a7c8151082e3f0f9651a24964.js",
   "service-worker.js": "/thai-airway/service-worker.js"
 }
