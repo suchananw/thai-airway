@@ -1,26 +1,43 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import mapReport from "./mapReport";
 
 export default class FormCheck extends Component {
   render() {
-    const label = this.props.label;
-    const id = this.props.id;
+    const name = this.props.name;
+    const label = mapReport[name];
     let span = "3";
     if (this.props.span) {
-      span = this.props.span
+      span = this.props.span;
     }
-    
+
     return (
-      <div class={`form-group row col-md-${span} text-left`}>
-        <div class="col-sm-6">
-          <label class="text-uppercase">{label}</label>
+      <div className={`form-group row col-md-${span} text-left`}>
+        <div className="col-sm-6">
+          <label className="text-uppercase">{label}</label>
         </div>
-        <div class="form-check radio-inline col-sm-3">
-          <input type="radio" id={`${id}_yes`} name={id} class="form-check-input"/>
-          <label class="form-check-label">YES</label>
+        <div className="form-check radio-inline col-sm-3">
+          <input
+            type="radio"
+            id={`${name}_yes`}
+            name={name}
+            value="yes"
+            className="form-check-input"
+            onChange={this.props.onChange}
+            checked={this.props.checked === "yes"}
+          />
+          <label className="form-check-label">YES</label>
         </div>
-        <div class="form-check radio-inline">
-          <input type="radio" id={`${id}_no`} name={id} class="form-check-input"/>
-          <label class="form-check-label">NO</label>
+        <div className="form-check radio-inline">
+          <input
+            type="radio"
+            id={`${name}_no`}
+            name={name}
+            value="no"
+            className="form-check-input"
+            onChange={this.props.onChange}
+            checked={this.props.checked === "no"}
+          />
+          <label className="form-check-label">NO</label>
         </div>
       </div>
     );

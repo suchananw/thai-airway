@@ -1,53 +1,61 @@
-import React, { Component } from 'react';
-import './App.css';
-import ReportForm from './components/ReportForm';
-import ChecklistForm from './components/ChecklistForm';
+import React, { Component } from "react";
+import "./App.css";
+import ReportForm from "./components/ReportForm";
+import ChecklistForm from "./components/ChecklistForm";
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      page: 'report',
+      page: "report",
       report: {},
       checklist: {}
-    }
+    };
   }
 
-  handleNext = () => {
+  handleNext = report => {
+    console.log(report);
+    const submitReport = report;
     this.setState({
-      page: 'checklist'
-    })
-  }
+      page: "checklist",
+      report: submitReport
+    });
+  };
 
   handleBack = () => {
     this.setState({
-      page: 'report'
-    })
-  }
+      page: "report"
+    });
+  };
 
-  handleSubmit = () => {
-    
-  }
+  handleSubmit = checklist => {
+    this.setState({
+      checklist: checklist
+    });
+  };
 
   render() {
     return (
       <div className="App">
         <header className="App-header p-4 font-weight-bold">
-          <h5>{(this.state.page==='report')? "Handling Report": "Checklist"}</h5>
+          <h5>
+            {this.state.page === "report" ? "Handling Report" : "Checklist"}
+          </h5>
         </header>
-        {(this.state.page==='report')
-        ?<div class="m-3">
-          <ReportForm />
-          <button onClick={this.handleNext} type="submit" class="btn btn-info">Next</button>
-        </div>
-        :(this.state.page==='checklist')
-          ?<div class="m-3">
-            <ChecklistForm />
-            <button onClick={this.handleBack} type="submit" class="btn btn-info mx-2">Back</button>
-            <button onClick={this.handleSubmit} type="submit" class="btn btn-info mx-2">Submit</button>
+        {this.state.page === "report" ? (
+          <div class="m-3">
+            <ReportForm handleNext={this.handleNext} />
           </div>
-          :<div>Loading ...</div>
-        }
+        ) : this.state.page === "checklist" ? (
+          <div class="m-3">
+            <ChecklistForm
+              handleBack={this.handleBack}
+              handleSubmit={this.handleSubmit}
+            />
+          </div>
+        ) : (
+          <div>Loading ...</div>
+        )}
       </div>
     );
   }

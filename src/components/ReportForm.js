@@ -1,139 +1,293 @@
-import React, { Component } from 'react';
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
-import FormText from './FormText'
-import FormCheck from './FormRadio'
-import 'react-datepicker/dist/react-datepicker.css';
-import './ReportForm.css'
+import React, { Component } from "react";
+import DatePicker from "react-datepicker";
+import moment from "moment";
+import FormText from "./FormText";
+import FormCheck from "./FormRadio";
+import FormSelect from "./FormSelect";
+import FormTimeSelect from "./FormTimeSelect";
+import "react-datepicker/dist/react-datepicker.css";
+import "./ReportForm.css";
 
 export default class ReportForm extends Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      Date: moment(),
-      Remark: ''
+      to: "",
+      from: "",
+      group: "",
+      roster: "",
+      flightNo: "",
+      date: moment(),
+      ACregis: "",
+      ACtype: "",
+      POO: "",
+      sta1: "",
+      eta1: "",
+      ata1: "",
+      baygate1: "",
+      disemark: "",
+      TSsamePlane: "",
+      ciq: "",
+      TScardDist: "",
+      SQ: "",
+      gateOpened: "",
+      gateClosed: "",
+      POD: "",
+      sta2: "",
+      eta2: "",
+      ata2: "",
+      baygate2: "",
+      crew: "",
+      inform: "",
+      start: "",
+      complete: "",
+      joining: "",
+      transfer: "",
+      samePlaneReboard: "",
+      iatci: "",
+      ostci: "",
+      staff: "",
+      collected: "",
+      boco: "",
+      busCo: "",
+      staffStand: "",
+      boardingAnnounced: "",
+      baggageBy: "",
+      baggageTotal: "",
+      babyStrollerBy: "",
+      babyStrollerTotal: "",
+      restrictedItemBy: "-",
+      restrictedItemTotal: "-",
+      docCheck: "-",
+      byPrior: "",
+      byRows: "",
+      specialCase: "",
+      handledBy: "",
+      ko: "",
+      koB: "",
+      lcs: "",
+      gateLeader: "",
+      remark: ""
     };
   }
 
-  iterateFormtext = (labels) => {
-    let forms = labels.map((label) => {
-      return <FormText label={label} span="12"/>
-    })
-    return forms
-  }
+  iterateFormtext = names => {
+    let forms = names.map(name => {
+      return <FormText name={name} span="12" onChange={this.onChange} />;
+    });
+    return forms;
+  };
+  iterateFormTimeSelect = (names, span) => {
+    let forms = names.map(name => {
+      return (
+        <FormTimeSelect name={name} span={span} onChange={this.onChange} />
+      );
+    });
+    return forms;
+  };
 
-  handleDateChange = (date) => {
-    this.setState({Date: date})
-  }
+  onDateChange = date => {
+    this.setState({ date: date });
+  };
 
-  handleRemarkChange = (event) => {
-    this.setState({remark: event.target.value});
-  }
+  onChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
 
-  handleSubmit = (event) => {
-    alert('Form was submitted');
+  onSubmit = event => {
     event.preventDefault();
-  }
+    const formData = this.state;
+    console.log(formData);
+    this.props.handleNext(this.state);
+    // fetch('/api/form-submit-url', {
+    //   method: 'POST',
+    //   body: data,
+    // });
+  };
 
-  render () {
-    const label1 = ['BAY / GATE','DISEMARKATION','T/S SAME PLANE','CIQ','T/S CARD DISTRIBUTED','S/P ONBOARD','GATE OPENED','GATE CLOSED']
-    const label2 = ['BAY / GATE','CREW ARR. GATE','INFORM BOARDING','START BOARDING','COMPLETE BOARDING','JOINING','TRANSFER','SAME PLANE REBOARD']
+  render() {
+    const name1 = [
+      "baygate1",
+      "disemark",
+      "TSsamePlane",
+      "ciq",
+      "TScardDist",
+      "SQ",
+      "gateOpened",
+      "gateClosed"
+    ];
+    const name2 = [
+      "baygate2",
+      "crew",
+      "inform",
+      "start",
+      "complete",
+      "joining",
+      "transfer",
+      "samePlaneReboard"
+    ];
 
     return (
-        <div class="container w-75 p-4">
-          <form onSubmit={this.handleSubmit}>
-            <div class="form-row">
-              <FormText label="FROM" span="4"/>
-              <FormText label="GROUP" span="4"/>
-              <FormText label="ROSTER" span="4"/>
+      <div className="container w-75 p-4">
+        <form onSubmit={this.onSubmit}>
+          <div className="form-row">
+            <FormSelect
+              span="2"
+              choices={["kp", "kx"]}
+              name="to"
+              onChange={this.onChange}
+            />
+            <FormText span="4" name="from" onChange={this.onChange} />
+            <FormSelect
+              span="3"
+              choices={[1, 2, 3, 4, 5, 6]}
+              name="group"
+              onChange={this.onChange}
+            />
+            <FormTimeSelect span="3" name="roster" onChange={this.onChange} />
+          </div>
+          <div className="form-row">
+            <FormText span="3" name="flightNo" onChange={this.onChange} />
+            <div className="form-group col-md-2 text-left">
+              <label>DATE</label>
+              <DatePicker
+                dateFormat="DD/MM/YYYY"
+                id="datePicker"
+                className="form-control"
+                selected={this.state.date}
+                onChange={this.onDateChange}
+              />
             </div>
-            <div class="form-row">
-              <FormText label="FLIGHT NO." span="3"/>
-              <div class="form-group col-md-2 text-left">
-                <label>DATE</label>
-                <DatePicker dateFormat="DD/MM/YYYY" id='datePicker' class="form-control" selected={this.state.Date} onChange={this.handleDateChange}/>
+            <FormText span="4" name="ACregis" onChange={this.onChange} />
+            <FormText span="3" name="ACtype" onChange={this.onChange} />
+          </div>
+          <div className="form-row border rounded mw-75 my-3">
+            <div className="col border-right">
+              <div className="col border-right border-bottom bg-info text-white mb-3 p-3">
+                ARRIVAL
               </div>
-              <FormText label="A/C REGISTERATION" span="4"/>
-              <FormText label="A/C TYPE" span="3"/>
-            </div>
-            <div class="form-row border rounded mw-75 my-3">
-              <div class="col border-right">
-              <div class="col border-right border-bottom bg-info text-white mb-3 p-3">ARRIVAL</div>
-                <FormText label="port of origin" span="12"/>
-                <div class="form-group form-row px-3 mb-0">
-                  <FormText label="STA" span="4"/>
-                  <FormText label="ETA" span="4"/>
-                  <FormText label="ATA" span="4"/>
-                </div>
-                {this.iterateFormtext(label1)}
+              <FormText
+                span="12"
+                name="POO"
+                value={this.state.POO}
+                onChange={this.onChange}
+              />
+              <div className="form-group form-row px-3 mb-0">
+                <FormTimeSelect
+                  span="4"
+                  name="sta1"
+                  value={this.state.sta1}
+                  onChange={this.onChange}
+                />
+                <FormTimeSelect
+                  span="4"
+                  name="eta1"
+                  value={this.state.eta1}
+                  onChange={this.onChange}
+                />
+                <FormTimeSelect
+                  span="4"
+                  name="ata1"
+                  value={this.state.ata1}
+                  onChange={this.onChange}
+                />
               </div>
-              <div class="col">
-                <div class="col border-bottom bg-info text-white mb-3 p-3">DEPARTURE</div>
-                <FormText label="port of destination" span="12"/>
-                <div class="form-group form-row px-3 mb-0">
-                  <FormText label="STA" span="4"/>
-                  <FormText label="ETA" span="4"/>
-                  <FormText label="ATA" span="4"/>
-                </div>
-                {this.iterateFormtext(label2)}
-                <div class="form-group form-row px-3 mb-0">
-                  <FormText label="IATCI" span="6"/>
-                  <FormText label="OSTCI" span="6"/>
-                </div>
+              {this.iterateFormtext(name1.slice(0, 6))}
+              {this.iterateFormTimeSelect(name1.slice(6), 12)}
+            </div>
+            <div className="col">
+              <div className="col border-bottom bg-info text-white mb-3 p-3">
+                DEPARTURE
               </div>
-            </div>
-            <div class="form-row">
-              <FormText label="STAFF ASSIGNED" span="12"/>
-            </div>
-            <div class="form-row">
-              <FormText label="BOARDING PASS / IMM CARD / TICKET COLLECTED BY" span="8"/>
-              <FormText label="BOCO BY" span="4"/>
-            </div>
-            <div class="form-row">
-              <FormText label="BUS CO-ORDINATOR" span="6"/>
-              <FormText label="STAFF STAND BY AT A/C SIDE" span="6"/>
-            </div>
-            <div class="form-row">
-              <FormText label="BOARDING ANNOUNCED BY" span="12"/>
-            </div>
-            <div class="form-row">
-              <FormText label="BAGGAGE INTERCEPTED BY" span="9"/>
-              <FormText label="TOTAL (PCS)" span="2"/>
-            </div>
-            <div class="form-row">
-              <FormText label="BABY STROLLER INTERCEPTED BY" span="9"/>
-              <FormText label="TOTAL (PCS)" span="2"/>
-            </div>
-            <div class="form-row">
-              <FormText label="RESTRICTED ITEM COLLECTED BY" span="9"/>
-              <FormText label="TOTAL (PCS)" span="2"/>
-            </div>
-            <div class="form-row">
-              <FormText label="DOCUMENT : CHECKED / MATCHED BY" span="12"/>
-            </div>
-            <div class="form-row">
-              <FormCheck label="BOARDING BY PRIORITY" id="radio1" span="6"/>
-              <FormCheck label="BOARDING BY ROWS" id="radio2" span="6"/>
-            </div>
-            <div class="form-row">
-              <FormText label="SPECIAL CASE ( ARR / DEP )" span="7"/>
-              <FormText label="HANDLED BY	" span="5"/>
-            </div>
-            <div class="form-row">
-              <FormText label="KO" span="3"/>
-              <FormText label="KO-B" span="3"/>
-              <FormText label="LCS" span="3"/>
-              <FormText label="CSS / GATE LEADER" span="3"/>
-            </div>
-            <div class="form-row">
-              <div class="form-group text-left col-sm-12">
-                <label class="text-uppercase"><u><strong>REMARKS / IRREGULARITIES :</strong></u></label>
-                <textarea class="form-control" id="remark" rows="7" value={this.state.remark} 
-                onChange={this.handleRemarkChange}></textarea>
+              <FormText span="12" name="POD" onChange={this.onChange} />
+              <div className="form-group form-row px-3 mb-0">
+                <FormTimeSelect span="4" name="sta1" onChange={this.onChange} />
+                <FormTimeSelect span="4" name="eta1" onChange={this.onChange} />
+                <FormTimeSelect span="4" name="ata1" onChange={this.onChange} />
+              </div>
+              {this.iterateFormtext(name2.slice(0, 2))}
+              {this.iterateFormTimeSelect(name2.slice(2, 5), 12)}
+              {this.iterateFormtext(name2.slice(5))}
+              <div className="form-group form-row px-3 mb-0">
+                <FormText name="iatci" span="6" />
+                <FormText name="ostci" span="6" />
               </div>
             </div>
-          </form>
-        </div>
+          </div>
+          <div className="form-row">
+            <FormText name="staff" span="12" />
+          </div>
+          <div className="form-row">
+            <FormText name="collected" span="8" />
+            <FormText name="boco" span="4" />
+          </div>
+          <div className="form-row">
+            <FormText name="busCo" span="6" />
+            <FormText name="staffStand" span="6" />
+          </div>
+          <div className="form-row">
+            <FormText name="boardingAnnounced" span="12" />
+          </div>
+          <div className="form-row">
+            <FormText name="baggageBy" span="9" />
+            <FormText name="baggageTotal" span="3" />
+          </div>
+          <div className="form-row">
+            <FormText name="babyStrollerBy" span="9" />
+            <FormText name="babyStrollerTotal" span="3" />
+          </div>
+          <div className="form-row">
+            <FormText name="restrictedItemBy" span="9" disabled={true} />
+            <FormText name="restrictedItemTotal" span="3" disabled={true} />
+          </div>
+          <div className="form-row">
+            <FormText name="docCheck" span="12" disabled={true} />
+          </div>
+          <div className="form-row">
+            <FormCheck
+              name="byPrior"
+              span="6"
+              checked={this.state.byPrior}
+              onChange={this.onChange}
+            />
+            <FormCheck
+              name="byRows"
+              span="6"
+              checked={this.state.byRows}
+              onChange={this.onChange}
+            />
+          </div>
+          <div className="form-row">
+            <FormText name="specialCase" span="7" />
+            <FormText name="handledBy" span="5" />
+          </div>
+          <div className="form-row">
+            <FormText name="ko" span="3" onChange={this.onChange} />
+            <FormText name="koB" span="3" onChange={this.onChange} />
+            <FormText name="lcs" span="3" onChange={this.onChange} />
+            <FormText name="gateLeader" span="3" onChange={this.onChange} />
+          </div>
+          <div className="form-row">
+            <div className="form-group text-left col-sm-12">
+              <label className="text-uppercase">
+                <u>
+                  <strong>REMARKS / IRREGULARITIES :</strong>
+                </u>
+              </label>
+              <textarea
+                className="form-control"
+                id="remark"
+                rows="7"
+                name="remark"
+                onChange={this.onChange}
+              />
+            </div>
+          </div>
+          <input type="submit" value="Next" className="btn btn-info" />
+        </form>
+      </div>
     );
   }
 }
