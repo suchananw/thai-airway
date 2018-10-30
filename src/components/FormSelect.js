@@ -13,7 +13,7 @@ export default class FormSelect extends Component {
 
     let dropdown = choices.map(choice => {
       return (
-        <option className="text-uppercase" value={choice} key={choice}>
+        <option value={choice} key={choice}>
           {choice}
         </option>
       );
@@ -24,7 +24,7 @@ export default class FormSelect extends Component {
         <label className="text-uppercase">{label}</label>
         <select
           name={name}
-          className="custom-select"
+          className="custom-select text-uppercase"
           value={this.props.value}
           onChange={this.onChange}
         >
