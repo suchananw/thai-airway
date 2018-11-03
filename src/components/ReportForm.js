@@ -101,10 +101,6 @@ export default class ReportForm extends Component {
     const formData = this.state;
     console.log(formData);
     this.props.handleNext(this.state);
-    // fetch('/api/form-submit-url', {
-    //   method: 'POST',
-    //   body: data,
-    // });
   };
 
   render() {

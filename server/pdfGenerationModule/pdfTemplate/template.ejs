@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- <link rel="stylesheet" type="text/css" href="/public/template.css" /> -->
+  <link href='https://fonts.googleapis.com/css?family=Assistant' rel='stylesheet'>
+</head>
+
+<body style="padding: 20px; font-family: 'Assistant';">
+  <table style="<%=table%>">
+    <tr>
+      <td style="<%=td%>" colspan="1">
+        <img alt='Thai Airway' src="<%=logo%>" height='30px'>
+      </td>
+      <td style="padding-left:20%;" colspan="8">
+        <h3>KP AIRSIDE HANDLING REPORT</h3>
+      </td>
+    </tr>
+    <tr>
+      <td style="<%=td%>">TO</td>
+      <td style="<%=fill%> width:100px;">
+        <%=to%>
+      </td>
+      <td style="<%=td%>">FROM</td>
+      <td style="<%=fill%> width:170px;">
+        <%=from%>
+      </td>
+      <td style="<%=td%>">GROUP</td>
+      <td style="<%=fill%> width:170px;">
+        <%=group%>
+      </td>
+      <td style="<%=td%>">ROSTER</td>
+      <td style="<%=fill%> width:170px;">
+        <%=roster%>
+      </td>
+    </tr>
+  </table>
+  <table style="<%=table%>">
+    <tr>
+      <td>FLIGHT NO.</td>
+      <td>
+        <%=flightNo%>
+      </td>
+      <td>DATE</td>
+      <td>_______________</td>
+      <td>A/C REGISTERATION</td>
+      <td>__________________</td>
+      <td>A/C TYPE</td>
+      <td>_________</td>
+    </tr>
+  </table>
+  <table style="<%=table%>">
+    <tr>
+      <td width="650px"></td>
+      <td>F KP — 100 Revision No. 04</td>
+    </tr>
+  </table>
+</body>
+
+</html>
