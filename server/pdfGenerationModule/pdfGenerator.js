@@ -1,4 +1,6 @@
-var htmlPdfChrome = require("html-pdf-chrome");
+// const htmlPdfChrome = require("html-pdf-chrome");
+const htmlToPdf = require("html-pdf");
+const fs = require("fs");
 
 var options = {
   port: 9222,
@@ -13,9 +15,16 @@ var options = {
   }
 };
 
-function generatePDF(html, outputFile) {
-  return htmlPdfChrome.create(html, options).then(function(pdf) {
-    pdf.toFile(outputFile);
+const config = {
+  format: "A4",
+  orientation: "portrait"
+  // Base path that's used to load files (images, css, js) when they aren't referenced using a host
+  // base: "file:///home/www/your-asset-path"
+};
+
+function generatePDF(html, filename) {
+  return htmlToPdf.create(html, config).toStream(function(err, stream) {
+    stream.pipe(fs.createWriteStream("./output/" + filename));
     return true;
   });
 }

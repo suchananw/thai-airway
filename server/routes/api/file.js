@@ -10,8 +10,11 @@ router.get("/test", (req, res) => res.json({ msg: "File Works" }));
 
 router.post("/printPDF", (req, res) => {
   const data = req.body;
-  pdfGeneratorService(data);
-  res.send("/");
+  pdfGeneratorService(data).then(stream => {
+    // res.setHeader("Content-type", "application/pdf");
+    // stream.pipe(res);
+    res.send("/");
+  });
 });
 
 module.exports = router;
