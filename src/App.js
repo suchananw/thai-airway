@@ -54,40 +54,7 @@ class App extends Component {
               handleSubmit={this.handleSubmit}
             />
           </div>
-        ) : (
-          <div>
-            <PDFExport
-              paperSize={"A4"}
-              fileName="test.pdf"
-              ref={r => (this.resume = r)}
-            >
-              <table class="toppart">
-                <tr>
-                  <td class="logo" colspan="1">
-                    <img
-                      alt="Thai Airway"
-                      src="Thai_Airways_Logo.svg"
-                      height="30px"
-                    />
-                  </td>
-                  <td class="title" colspan="6">
-                    <h3>kp airside handling report</h3>
-                  </td>
-                </tr>
-                <tr>
-                  <td>TO KP</td>
-                  <td>FROM</td>
-                  <td>____________________</td>
-                  <td>GROUP</td>
-                  <td>___________________</td>
-                  <td>ROSTER</td>
-                  <td>____________________</td>
-                </tr>
-              </table>
-            </PDFExport>
-            <button onClick={this.exportPDF}>download</button>
-          </div>
-        )}
+        ) : null}
       </div>
     );
   }

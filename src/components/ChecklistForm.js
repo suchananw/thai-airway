@@ -5,53 +5,73 @@ export default class ChecklistForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checklist: {
-        remark: "",
-        arrive: true,
-        depart: true
+      remark: "",
+      arrive: {
+        checked: false,
+        outbound: false,
+        ACParking: false,
+        loadInfo: false,
+        countMachine: false,
+        card: false,
+        arrange: false,
+        conInfo: false
+      },
+      depart: {
+        checked: false,
+        inbound: false,
+        ACParking: false,
+        limitedTag: false,
+        fragile: false,
+        envelope: false,
+        bus: false,
+        stkPax: false,
+        stkFlight: false
       }
     };
   }
 
-  iterateFormCheck(labels) {
-    let forms = labels.map(label => {
-      return <FormCheck label={label} span="12" id="" />;
+  iterateFormCheck(names, parent) {
+    let forms = names.map(name => {
+      return <FormCheck name={name} span="12" onChange={this.handleChange} checked={{parent}==="arrive"?{this.state.arrive}:{this.state.depart}} />;
     });
     return forms;
   }
 
   handleRemarkChange = event => {
     this.setState({
-      checklist: { remark: event.target.value }
+      remark: event.target.value
     });
   };
 
-  handleClear = () => {
+  handleChange = (event, parent) => {
     this.setState({
-      arrive: true,
-      depart: true
+      [parent]: {
+        [event.target.name]: event.target.value
     });
+  }
+
+  handleClear = () => {
   };
 
   render() {
-    const label1 = [
-      "OUTBOUND CONNECTIONS SUMMARY",
-      "A/C PARKING BAY",
-      "PASSENGER LOAD INFORMATION",
-      "COUNTING MACHINE",
-      "GATE / TRANSIT CARD",
-      "TRANSPORTATION ARRANGEMENT",
-      "SHORT CONNECTING INFORMATION"
+    const name1 = [
+      "outbound",
+	    "ACParking",
+	    "loadInfo",
+	    "countMachine",
+	    "card",
+	    "arrange",
+	    "conInfo"
     ];
-    const label2 = [
-      "INBOUND CONNECTION SUMMARY",
-      "A/C PARKING BAY",
-      "LIMITED RELEASE TAG",
-      "FRAGILE TAG",
-      "ENVELOPE FOR RESTRICTED ITEM",
-      "BUS RELEASE FORM FOR DRIVER",
-      "STICKERS FOR INTERNATIONAL PAX",
-      "STICKERS FOR FLIGHT COMBINED"
+    const name2 = [
+      "inbound",
+	    "ACParking",
+	    "limitedTag",
+	    "fragile",
+	    "envelope",
+	    "bus",
+	    "stkPax",
+	    "stkFlight"
     ];
 
     return (
@@ -62,13 +82,13 @@ export default class ChecklistForm extends Component {
               <div class="col border-right border-bottom bg-info text-white mb-3 p-3">
                 ARRIVAL
               </div>
-              {this.iterateFormCheck(label1)}
+              {this.iterateFormCheck(name1,"arrive")}
             </div>
             <div class="col">
               <div class="col border-bottom bg-info text-white mb-3 p-3">
                 DEPARTURE
               </div>
-              {this.iterateFormCheck(label2)}
+              {this.iterateFormCheck(name2, "depart")}
             </div>
           </div>
           <div class="form-row">
@@ -87,23 +107,19 @@ export default class ChecklistForm extends Component {
               />
             </div>
           </div>
-          <button
+          <input
             onClick={this.handleClear}
             type="button"
+            value="Clear"
             class="btn btn-danger mx-2"
-          >
-            Clear
-          </button>
-          <button
+          />
+          <input
             onClick={this.props.handleBack}
             type="button"
+            value="Back"
             class="btn btn-info mx-2"
-          >
-            Back
-          </button>
-          <button type="submit" class="btn btn-info mx-2">
-            Submit
-          </button>
+          />
+          <input type="submit" value="Submit" class="btn btn-info mx-2" />
         </form>
       </div>
     );

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import moment from "moment";
 import FormText from "./FormText";
-import FormCheck from "./FormRadio";
+import FormRadio from "./FormRadio";
 import FormSelect from "./FormSelect";
 import FormTimeSelect from "./FormTimeSelect";
 import "react-datepicker/dist/react-datepicker.css";
@@ -242,13 +242,13 @@ export default class ReportForm extends Component {
             <FormText name="docCheck" span="12" disabled={true} />
           </div>
           <div className="form-row">
-            <FormCheck
+            <FormRadio
               name="byPrior"
               span="6"
               checked={this.state.byPrior}
               onChange={this.onChange}
             />
-            <FormCheck
+            <FormRadio
               name="byRows"
               span="6"
               checked={this.state.byRows}

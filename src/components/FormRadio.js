@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import mapReport from "./mapReport";
 
-export default class FormCheck extends Component {
+export default class FormRadio extends Component {
   render() {
     const name = this.props.name;
     const label = mapReport[name];
