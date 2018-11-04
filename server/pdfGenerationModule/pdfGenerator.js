@@ -17,9 +17,10 @@ var options = {
 
 const config = {
   format: "A4",
-  orientation: "portrait"
+  orientation: "portrait",
   // Base path that's used to load files (images, css, js) when they aren't referenced using a host
   // base: "file:///home/www/your-asset-path"
+  paginationOffset: 2
 };
 
 function generatePDF(html, filename) {
