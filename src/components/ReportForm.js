@@ -71,6 +71,11 @@ export default class ReportForm extends Component {
     };
   }
 
+  componentDidMount() {
+    console.log(this.props.data);
+    this.setState(this.props.data);
+  }
+
   iterateFormtext = names => {
     let forms = names.map(name => {
       return <FormText name={name} span="12" onChange={this.onChange} />;
@@ -277,6 +282,7 @@ export default class ReportForm extends Component {
                 id="remark"
                 rows="7"
                 name="remark"
+                value={this.state.remark}
                 onChange={this.onChange}
               />
             </div>

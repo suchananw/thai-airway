@@ -17,7 +17,7 @@ export default class FormCheck extends Component {
           type="checkbox"
           name={name}
           onChange={this.props.onChange}
-          {this.props.checked? {Checked}: null}
+          {...(this.props.checked ? "Checked" : null)}
         />
         <label class="form-check-label">{label}</label>
       </div>

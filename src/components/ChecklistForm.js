@@ -30,9 +30,20 @@ export default class ChecklistForm extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setState(this.props.data);
+  }
+
   iterateFormCheck(names, parent) {
     let forms = names.map(name => {
-      return <FormCheck name={name} span="12" onChange={this.handleChange} checked={{parent}==="arrive"?{this.state.arrive}:{this.state.depart}} />;
+      return (
+        <FormCheck
+          name={name}
+          span="12"
+          onChange={this.handleChange}
+          checked={this.state[parent][name]}
+        />
+      );
     });
     return forms;
   }
@@ -47,31 +58,31 @@ export default class ChecklistForm extends Component {
     this.setState({
       [parent]: {
         [event.target.name]: event.target.value
+      }
     });
-  }
-
-  handleClear = () => {
   };
+
+  handleClear = () => {};
 
   render() {
     const name1 = [
       "outbound",
-	    "ACParking",
-	    "loadInfo",
-	    "countMachine",
-	    "card",
-	    "arrange",
-	    "conInfo"
+      "ACParking",
+      "loadInfo",
+      "countMachine",
+      "card",
+      "arrange",
+      "conInfo"
     ];
     const name2 = [
       "inbound",
-	    "ACParking",
-	    "limitedTag",
-	    "fragile",
-	    "envelope",
-	    "bus",
-	    "stkPax",
-	    "stkFlight"
+      "ACParking",
+      "limitedTag",
+      "fragile",
+      "envelope",
+      "bus",
+      "stkPax",
+      "stkFlight"
     ];
 
     return (
@@ -82,7 +93,7 @@ export default class ChecklistForm extends Component {
               <div class="col border-right border-bottom bg-info text-white mb-3 p-3">
                 ARRIVAL
               </div>
-              {this.iterateFormCheck(name1,"arrive")}
+              {this.iterateFormCheck(name1, "arrive")}
             </div>
             <div class="col">
               <div class="col border-bottom bg-info text-white mb-3 p-3">
@@ -102,7 +113,7 @@ export default class ChecklistForm extends Component {
                 class="form-control"
                 id="remark2"
                 rows="10"
-                value={this.state.checklist.remark}
+                value={this.state.remark}
                 onChange={this.handleRemarkChange}
               />
             </div>
