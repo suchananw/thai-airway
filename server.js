@@ -2,17 +2,18 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const path = require("path");
+const cors = require("cors");
 
 const users = require("./routes/api/user");
 const files = require("./routes/api/file");
 
 const app = express();
 
+app.use(cors());
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.options("*", cors());
 // DB Config
 const db = require("./config/keys").mongoURI;
 

@@ -103,9 +103,9 @@ export default class ReportForm extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    const formData = this.state;
-    console.log(formData);
-    this.props.handleNext(this.state);
+    // const formData = this.state;
+    // console.log(formData);
+    this.props.handleNext(event, this.state);
   };
 
   render() {

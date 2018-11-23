@@ -322,9 +322,9 @@
     <table style="width: 720px; padding: 10px 0px;">
       <th style="text-align: left;">REMARKS / IRREGULARITIES :</th>
       <tr>
-        <td style="height: 250px; word-wrap: break-word;">
+        <td style="height: 250px; word-wrap: break-word; vertical-align: top;">
           <div style="max-width: 700px; line-height: 1em; padding: 0px 10px;">
-            <p style="vertical-align:top;">
+            <p>
               <%=report.remark%>
             </p>
           </div>
@@ -359,78 +359,78 @@
       </tr>
       <tr>
         <td>
-          <input type="checkbox" <% if (checklist.arrive.outbound) { %>checked
+          <input type="checkbox" class="arrival" <% if (checklist.arrive.outbound) { %>checked
           <% } %> ><span style="padding: 0px 20px;">OUTBOUND CONNECTIONS SUMMARY</span>
         </td>
         <td>
-          <input type="checkbox" <% if (checklist.depart.inbound) { %>checked
+          <input type="checkbox" class="departure" <% if (checklist.depart.inbound) { %>checked
           <% } %> ><span style="padding: 0px 20px;">INBOUND CONNECTION SUMMARY</span>
         </td>
       </tr>
       <tr>
         <td>
-          <input type="checkbox" <% if (checklist.arrive.ACParking) { %>checked
+          <input type="checkbox" class="arrival" <% if (checklist.arrive.ACParking) { %>checked
           <% } %> ><span style="padding: 0px 20px;">A/C PARKING BAY</span>
         </td>
         <td>
-          <input type="checkbox" <% if (checklist.depart.ACParking) { %>checked
+          <input type="checkbox" class="departure" <% if (checklist.depart.ACParking) { %>checked
           <% } %> ><span style="padding: 0px 20px;">A/C PARKING BAY</span>
         </td>
       </tr>
       <tr>
         <td>
-          <input type="checkbox" <% if (checklist.arrive.loadInfo) { %>checked
+          <input type="checkbox" class="arrival" <% if (checklist.arrive.loadInfo) { %>checked
           <% } %> ><span style="padding: 0px 20px;">PASSENGER LOAD INFORMATION</span>
         </td>
         <td>
-          <input type="checkbox" <% if (checklist.depart.limitedTag) { %>checked
+          <input type="checkbox" class="departure" <% if (checklist.depart.limitedTag) { %>checked
           <% } %> ><span style="padding: 0px 20px;">LIMITED RELEASE TAG</span>
         </td>
       </tr>
       <tr>
         <td>
-          <input type="checkbox" <% if (checklist.arrive.countMachine) { %>checked
+          <input type="checkbox" class="arrival" <% if (checklist.arrive.countMachine) { %>checked
           <% } %> ><span style="padding: 0px 20px;">COUNTING MACHINE</span>
         </td>
         <td>
-          <input type="checkbox" <% if (checklist.depart.fragile) { %>checked
+          <input type="checkbox" class="departure" <% if (checklist.depart.fragile) { %>checked
           <% } %> ><span style="padding: 0px 20px;">FRAGILE TAG</span>
         </td>
       </tr>
       <tr>
         <td>
-          <input type="checkbox" <% if (checklist.arrive.card) { %>checked
+          <input type="checkbox" class="arrival" <% if (checklist.arrive.card) { %>checked
           <% } %> ><span style="padding: 0px 20px;">GATE / TRANSIT CARD</span>
         </td>
         <td>
-          <input type="checkbox" <% if (checklist.depart.envelope) { %>checked
+          <input type="checkbox" class="departure" <% if (checklist.depart.envelope) { %>checked
           <% } %> ><span style="padding: 0px 20px;">ENVELOPE FOR RESTRICTED ITEM</span>
         </td>
       </tr>
       <tr>
         <td>
-          <input type="checkbox" <% if (checklist.arrive.arrange) { %>checked
+          <input type="checkbox" class="arrival" <% if (checklist.arrive.arrange) { %>checked
           <% } %> ><span style="padding: 0px 20px;">TRANSPORTATION ARRANGEMENT</span>
         </td>
         <td>
-          <input type="checkbox" <% if (checklist.depart.bus) { %>checked
+          <input type="checkbox" class="departure" <% if (checklist.depart.bus) { %>checked
           <% } %> ><span style="padding: 0px 20px;">BUS RELEASE FORM FOR DRIVER</span>
         </td>
       </tr>
       <tr>
         <td>
-          <input type="checkbox" <% if (checklist.arrive.conInfo) { %>checked
+          <input type="checkbox" class="arrival" <% if (checklist.arrive.conInfo) { %>checked
           <% } %> ><span style="padding: 0px 20px;">SHORT CONNECTING INFORMATION</span>
         </td>
         <td>
-          <input type="checkbox" <% if (checklist.depart.stkPax) { %>checked
+          <input type="checkbox" class="departure" <% if (checklist.depart.stkPax) { %>checked
           <% } %> ><span style="padding: 0px 20px;">STICKERS FOR INTERNATIONAL PAX</span>
         </td>
       </tr>
       <tr>
         <td></td>
         <td>
-          <input type="checkbox" <% if (checklist.depart.stkFlight) { %>checked
+          <input type="checkbox" class="departure" <% if (checklist.depart.stkFlight) { %>checked
           <% } %> ><span style="padding: 0px 20px;">STICKERS FOR FLIGHT COMBINED</span>
         </td>
       </tr>
@@ -438,9 +438,9 @@
     <table style="<%=style.table%> margin: 20px 30px; padding:10px;">
       <th style="text-align: left;">REMARKS / IRREGULARITIES :</th>
       <tr>
-        <td style="height: 300px; word-wrap: break-word;">
+        <td style="height: 300px; word-wrap: break-word; vertical-align: top;">
           <div style="max-width: 700px; line-height: 1em; padding: 0px 10px;">
-            <p style="vertical-align:top;">
+            <p>
               <%=checklist.remark%>
             </p>
           </div>
@@ -448,6 +448,21 @@
       </tr>
     </table>
   </div>
+
+  <!-- <script>
+    if (!<%= checklist.arrive.checked %>) {
+      var checkboxs = document.getElementsByClassName("arrival");
+    }else if (!<%= checklist.depart.checked %>) {
+      var checkboxs = document.getElementsByClassName("departure");
+    }
+    // var checkbox = document.getElementsByClassName("some-checkbox");
+    // checkbox.indeterminate = true;
+
+    [].forEach.call(checkboxs, function (checkbox) {
+      checkbox.indeterminate = true;
+      console.log(checkbox)
+    });
+  </script> -->
 </body>
 
 </html>

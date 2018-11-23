@@ -7,12 +7,12 @@ export default class FormTimeSelect extends Component {
     const label = mapReport[name];
     const TIME = [];
     for (let i = 0; i < 10; i++) {
-      TIME.push(`0${i} 00`);
-      TIME.push(`0${i} 30`);
+      TIME.push(`0${i}00`);
+      TIME.push(`0${i}30`);
     }
     for (let i = 10; i <= 23; i++) {
-      TIME.push(`${i} 00`);
-      TIME.push(`${i} 30`);
+      TIME.push(`${i}00`);
+      TIME.push(`${i}30`);
     }
 
     let span = "3";

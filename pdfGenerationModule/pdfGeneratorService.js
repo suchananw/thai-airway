@@ -1,6 +1,5 @@
 const htmlGenerator = require("./pdfTemplate/htmlGenerator");
 const generatePDF = require("./pdfGenerator");
-
 const constants = require("./constants");
 
 function pdfGeneratorService(data) {

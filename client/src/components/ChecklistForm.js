@@ -40,6 +40,7 @@ export default class ChecklistForm extends Component {
         <FormCheck
           name={name}
           span="12"
+          parent={parent}
           onChange={this.handleChange}
           checked={this.state[parent][name]}
         />
@@ -55,9 +56,15 @@ export default class ChecklistForm extends Component {
   };
 
   handleChange = (event, parent) => {
+    console.log(parent, event);
+    let value = false;
+    if (event.target.value === "on") {
+      value = true;
+    }
     this.setState({
       [parent]: {
-        [event.target.name]: event.target.value
+        ...this.state[parent],
+        [event.target.name]: value
       }
     });
   };
@@ -87,7 +94,11 @@ export default class ChecklistForm extends Component {
 
     return (
       <div class="container w-75 p-4">
-        <form onSubmit={this.props.handleSubmit}>
+        <form
+          onSubmit={event => {
+            this.props.handleSubmit(event, this.state);
+          }}
+        >
           <div class="form-row border rounded mw-75 my-3">
             <div class="col border-right">
               <div class="col border-right border-bottom bg-info text-white mb-3 p-3">

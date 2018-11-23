@@ -1,19 +1,5 @@
-// const htmlPdfChrome = require("html-pdf-chrome");
 const htmlToPdf = require("html-pdf");
 const fs = require("fs");
-
-var options = {
-  port: 9222,
-  printOptions: {
-    printBackground: true,
-    marginTop: 0,
-    marginBottom: 0,
-    marginLeft: 0.5,
-    marginRight: 0.5,
-    paperWidth: 8.27,
-    paperHeight: 11.69
-  }
-};
 
 const config = {
   format: "A4",
