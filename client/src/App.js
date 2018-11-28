@@ -56,7 +56,7 @@ class App extends Component {
         const formData = this.state;
         console.log(formData);
 
-        axios.post("http://localhost:5000/api/files/printPDF", this.state);
+        axios.post("/api/files/printPDF", this.state);
       }
     );
   };
