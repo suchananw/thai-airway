@@ -12,9 +12,9 @@ function generatePDF(html, filename) {
     // stream.pipe(fs.createWriteStream("./output/" + filename));
     // return true;
     if (err) return res.end(err.stack);
-    // return stream;
-    res.setHeader("Content-type", "application/pdf");
-    stream.pipe(res);
+    return stream;
+    // res.setHeader("Content-type", "application/pdf");
+    // stream.pipe(res);
   });
 }
 
