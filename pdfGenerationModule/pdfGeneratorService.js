@@ -21,18 +21,20 @@ function pdfGeneratorService(data) {
   const filename = "pdf-" + new Date().getTime() + ".pdf";
   const outputFile = constants.PDF_OUTPUT_DIR + filename;
 
-  return htmlGenerator(templateFile, data) // Builds HTML
-    .then(function(html) {
-      return generatePDF(html, filename); // Builds PDF
-    })
-    .then(function(success) {
-      console.log("PDF generation successful at " + outputFile);
-      return success;
-    })
-    .catch(function(err) {
-      console.log("ERROR in PDF generation : " + err);
-      return false;
-    });
+  return (
+    htmlGenerator(templateFile, data) // Builds HTML
+      .then(function(html) {
+        return generatePDF(html, filename); // Builds PDF
+      })
+      // .then(function(success) {
+      //   console.log("PDF generation successful at " + outputFile);
+      //   return success;
+      // })
+      .catch(function(err) {
+        console.log("ERROR in PDF generation : " + err);
+        return false;
+      })
+  );
 }
 
 module.exports = pdfGeneratorService;
