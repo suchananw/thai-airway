@@ -18,11 +18,7 @@ function pdfGeneratorService(data) {
   };
 
   const templateFile = "./pdfGenerationModule/pdfTemplate/template.ejs";
-  // const templateFile = fs.readFileSync(
-  //   require.resolve("./pdfGenerationModule/pdfTemplate/template.ejs"),
-  //   "utf8"
-  // );
-  const filename = "pdf-" + new Date().getTime() + ".pdf";
+  const filename = "/pdf-" + new Date().getTime() + ".pdf";
 
   return (
     htmlGenerator(templateFile, data) // Builds HTML

@@ -9,10 +9,14 @@ router.get("/test", (req, res) => res.json({ msg: "File Works" }));
 
 router.post("/printPDF", (req, res) => {
   const data = req.body;
-  pdfGeneratorService(data).then(stream => {
-    res.setHeader("Content-type", "application/pdf");
-    stream.pipe(res);
-    // res.send("/");
+  pdfGeneratorService(data).then(data => {
+    res.writeHead(200, {
+      "Content-Type": "application/pdf",
+      "Content-Length": data.length
+    });
+    res.end(data);
+    // res.setHeader("Content-type", "application/pdf");
+    // stream.pipe(res);
   });
 });
 
