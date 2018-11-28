@@ -6,6 +6,7 @@ function htmlGenerator(templateFile, data) {
       if (err) {
         reject(err);
       } else {
+        console.log("render success");
         resolve(html);
       }
     });
