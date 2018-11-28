@@ -4,8 +4,6 @@ const fs = require("fs");
 const config = {
   format: "A4",
   orientation: "portrait",
-  // Base path that's used to load files (images, css, js) when they aren't referenced using a host
-  // base: "file:///home/www/your-asset-path"
   paginationOffset: 2
 };
 
@@ -14,9 +12,9 @@ function generatePDF(html, filename) {
     // stream.pipe(fs.createWriteStream("./output/" + filename));
     // return true;
     if (err) return res.end(err.stack);
-    return stream;
-    // res.setHeader('Content-type', 'application/pdf')
-    // stream.pipe(res)
+    // return stream;
+    res.setHeader("Content-type", "application/pdf");
+    stream.pipe(res);
   });
 }
 

@@ -1,6 +1,5 @@
 const htmlGenerator = require("./pdfTemplate/htmlGenerator");
 const generatePDF = require("./pdfGenerator");
-const constants = require("./constants");
 const fs = require("fs");
 
 function pdfGeneratorService(data) {
@@ -24,7 +23,6 @@ function pdfGeneratorService(data) {
     "utf8"
   );
   const filename = "pdf-" + new Date().getTime() + ".pdf";
-  const outputFile = constants.PDF_OUTPUT_DIR + filename;
 
   return (
     htmlGenerator(templateFile, data) // Builds HTML
