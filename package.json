@@ -9,6 +9,7 @@
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "cors": "^2.8.5",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "html-pdf": "^2.2.0",
     "jsonwebtoken": "^8.3.0",
