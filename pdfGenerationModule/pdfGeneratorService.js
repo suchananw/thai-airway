@@ -17,11 +17,11 @@ function pdfGeneratorService(data) {
     underline: "display: table-cell; border-bottom: 1px solid black;"
   };
 
-  // const templateFile = "./pdfGenerationModule/pdfTemplate/template.ejs";
-  const templateFile = fs.readFileSync(
-    require.resolve("/pdfTemplate/template.ejs"),
-    "utf8"
-  );
+  const templateFile = "./pdfGenerationModule/pdfTemplate/template.ejs";
+  // const templateFile = fs.readFileSync(
+  //   require.resolve("./pdfGenerationModule/pdfTemplate/template.ejs"),
+  //   "utf8"
+  // );
   const filename = "pdf-" + new Date().getTime() + ".pdf";
 
   return (
