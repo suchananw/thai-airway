@@ -17,7 +17,7 @@ function generatePDF(html, res) {
       "Content-Disposition": "attachment; filename=" + filename,
       "Content-Length": buffer.length
     });
-    res.end(returnData);
+    res.end(buffer);
     // return Buffer.from(buffer, "binary");
   });
 }
