@@ -9,10 +9,10 @@ router.get("/test", (req, res) => res.json({ msg: "File Works" }));
 
 router.post("/printPDF", (req, res) => {
   const data = req.body;
-  const filename = "/report-" + new Date().getTime() + ".pdf";
+  const filename = "report-" + new Date().getTime() + ".pdf";
   pdfGeneratorService(data).then(returnData => {
-    console.log("This is a buffer:", Buffer.isBuffer(returnData));
-    console.log("data buffer ", returnData);
+    console.log("api This is a buffer:", Buffer.isBuffer(returnData));
+    console.log("api data buffer ", returnData);
     res.writeHead(200, {
       "Content-Type": "application/pdf",
       "Content-Disposition": "attachment; filename=" + filename

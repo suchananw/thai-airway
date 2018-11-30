@@ -9,8 +9,8 @@ const config = {
 
 function generatePDF(html) {
   return htmlToPdf.create(html, config).toBuffer(function(err, buffer) {
-    console.log("This is a buffer:", Buffer.isBuffer(buffer));
-    console.log(buffer);
+    console.log("genpdf This is a buffer:", Buffer.isBuffer(buffer));
+    console.log("genpdf " + buffer);
     return Buffer.from(buffer, "binary");
   });
 }
