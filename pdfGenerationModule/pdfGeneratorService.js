@@ -2,7 +2,7 @@ const htmlGenerator = require("./pdfTemplate/htmlGenerator");
 const generatePDF = require("./pdfGenerator");
 const fs = require("fs");
 
-function pdfGeneratorService(data) {
+function pdfGeneratorService(data, res) {
   data["logo"] =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShFvsk2nXDB5cYdS05xx7HWJrouFAQSzR10r0MatepqFTFOtP7";
   data["style"] = {
@@ -22,7 +22,7 @@ function pdfGeneratorService(data) {
   return (
     htmlGenerator(templateFile, data) // Builds HTML
       .then(function(html) {
-        return generatePDF(html); // Builds PDF
+        return generatePDF(html, res); // Builds PDF
       })
       // .then(function(success) {
       //   console.log("PDF generation successful at " + outputFile);

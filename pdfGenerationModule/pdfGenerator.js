@@ -7,11 +7,18 @@ const config = {
   paginationOffset: 2
 };
 
-function generatePDF(html) {
+function generatePDF(html, res) {
+  const filename = "report-" + new Date().getTime() + ".pdf";
   return htmlToPdf.create(html, config).toBuffer(function(err, buffer) {
     console.log("genpdf This is a buffer:", Buffer.isBuffer(buffer));
     console.log("genpdf " + buffer);
-    return Buffer.from(buffer, "binary");
+    res.writeHead(200, {
+      "Content-Type": "application/pdf",
+      "Content-Disposition": "attachment; filename=" + filename,
+      "Content-Length": buffer.length
+    });
+    res.end(returnData);
+    // return Buffer.from(buffer, "binary");
   });
 }
 
