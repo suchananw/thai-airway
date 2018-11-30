@@ -2,11 +2,11 @@ const htmlToPdf = require("html-pdf");
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 
-const config = {
-  format: "A4",
-  orientation: "portrait",
-  paginationOffset: 2
-};
+// const config = {
+//   format: "A4",
+//   orientation: "portrait",
+//   paginationOffset: 2
+// };
 
 // PDF not support css
 // function generatePDF(html, res) {
@@ -24,6 +24,7 @@ const config = {
 //   });
 // }
 
+// PDF use puppeteer
 function generatePDF(html, res) {
   (async () => {
     const browser = await puppeteer.launch();
