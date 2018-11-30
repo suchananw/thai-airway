@@ -9,7 +9,10 @@ const config = {
 
 function generatePDF(html, filename) {
   return htmlToPdf.create(html, config).toBuffer(function(err, buffer) {
+    dataBuffer = buffer;
     console.log("This is a buffer:", Buffer.isBuffer(buffer));
+    console.log(buffer);
+    return dataBuffer;
   });
 }
 
