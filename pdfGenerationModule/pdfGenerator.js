@@ -7,12 +7,11 @@ const config = {
   paginationOffset: 2
 };
 
-function generatePDF(html, filename) {
+function generatePDF(html) {
   return htmlToPdf.create(html, config).toBuffer(function(err, buffer) {
-    dataBuffer = buffer;
     console.log("This is a buffer:", Buffer.isBuffer(buffer));
     console.log(buffer);
-    return dataBuffer;
+    return Buffer.from(buffer, "binary");
   });
 }
 

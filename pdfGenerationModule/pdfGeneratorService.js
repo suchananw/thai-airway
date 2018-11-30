@@ -18,12 +18,11 @@ function pdfGeneratorService(data) {
   };
 
   const templateFile = "./pdfGenerationModule/pdfTemplate/template.ejs";
-  const filename = "/pdf-" + new Date().getTime() + ".pdf";
 
   return (
     htmlGenerator(templateFile, data) // Builds HTML
       .then(function(html) {
-        return generatePDF(html, filename); // Builds PDF
+        return generatePDF(html); // Builds PDF
       })
       // .then(function(success) {
       //   console.log("PDF generation successful at " + outputFile);
