@@ -8,10 +8,8 @@ const config = {
 };
 
 function generatePDF(html, filename) {
-  return htmlToPdf.create(html, config).toStream(function(err, stream) {
-    console.log("gen pdf stream");
-    stream.pipe(fs.createWriteStream("./foo.pdf"));
-    return true;
+  return htmlToPdf.create(html, config).toBuffer(function(err, buffer) {
+    console.log("This is a buffer:", Buffer.isBuffer(buffer));
   });
 }
 
