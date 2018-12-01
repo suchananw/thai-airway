@@ -1,468 +1,655 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <style>
+      @font-face {
+        font-family: Calibri;
+        src: url(./pdfGenerationModule/pdfTemplate/Calibri.ttf);
+      }
+      html,
+      body {
+        font-family: "Calibri";
+        font-size: 15px;
+      }
+    </style>
+  </head>
 
-<head>
-</head>
+  <body>
+    <!-- Page 1 -->
+    <div style="height: 100%; width: 100%; margin:auto; padding: 20px 25px;">
+      <table style="<%=style.table%>">
+        <tr>
+          <td style="<%=style.td%>" colspan="1">
+            <img alt="Thai Airway" src="<%=logo%>" height="30px" />
+          </td>
+          <td style="padding-left:20%;" colspan="8">
+            <h3>KP AIRSIDE HANDLING REPORT</h3>
+          </td>
+        </tr>
+        <tr>
+          <td style="<%=style.td%>">TO</td>
+          <td style="<%=style.fill%> width:100px;"><%=report.to%></td>
+          <td style="<%=style.td%>">FROM</td>
+          <td style="<%=style.fill%> width:260px;"><%=report.from%></td>
+          <td style="<%=style.td%>">GROUP</td>
+          <td style="<%=style.fill%> width:260px;"><%=report.group%></td>
+          <td style="<%=style.td%>">ROSTER</td>
+          <td style="<%=style.fill%> width:260px;"><%=report.roster%></td>
+        </tr>
+      </table>
 
-<body style="font-family: 'Calibri'; font-size:15px;">
-  <!-- Page 1 -->
-  <div style="height: 100%; width: 100%; margin:auto; padding: 20px 25px;">
-    <table style="<%=style.table%>">
-      <tr>
-        <td style="<%=style.td%>" colspan="1">
-          <img alt='Thai Airway' src="<%=logo%>" height='30px'>
-        </td>
-        <td style="padding-left:20%;" colspan="8">
-          <h3>KP AIRSIDE HANDLING REPORT</h3>
-        </td>
-      </tr>
-      <tr>
-        <td style="<%=style.td%>">TO</td>
-        <td style="<%=style.fill%> width:100px;">
-          <%=report.to%>
-        </td>
-        <td style="<%=style.td%>">FROM</td>
-        <td style="<%=style.fill%> width:260px;">
-          <%=report.from%>
-        </td>
-        <td style="<%=style.td%>">GROUP</td>
-        <td style="<%=style.fill%> width:260px;">
-          <%=report.group%>
-        </td>
-        <td style="<%=style.td%>">ROSTER</td>
-        <td style="<%=style.fill%> width:260px;">
-          <%=report.roster%>
-        </td>
-      </tr>
-    </table>
-    <table style="<%=style.table%>">
-      <tr>
-        <td>FLIGHT NO.</td>
-        <td style="<%=style.fill%> width:100px;">
-          <%=report.flightNo%>
-        </td>
-        <td>DATE</td>
-        <td style="<%=style.fill%> width:100px;">
-          <%=report.date%>
-        </td>
-        <td>A/C REGISTERATION</td>
-        <td style="<%=style.fill%> width:140px;">
-          <%=report.ACregis%>
-        </td>
-        <td>A/C TYPE</td>
-        <td style="<%=style.fill%> width:80px;">
-          <%=report.ACtype%>
-        </td>
-      </tr>
-    </table>
-    <table style="<%=style.table%> margin: 20px 0px; border: 1px solid  black;">
-      <tr style="border: 1px solid black;">
-        <th style="width:360px; border: 1px solid black;" colspan="2">ARRIVAL</th>
-        <th style="width:360px; border: 1px solid black;" colspan="2">DEPARTURE</th>
-      </tr>
-      <tr>
-        <td style="<%=style.tablelabel%>">port of origin</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.POO%></span></td>
-        <td style="<%=style.tablelabel%>">port of destination</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.POD%></span></td>
-      </tr>
-      <tr>
-        <td colspan="2" style="padding-left: 8px; border-right: 1px solid black;">
-          <table style="width:350px;">
-            <tr>
-              <td>STA</td>
-              <td><span style="<%=style.underline%> min-width:75px;">
-                  <%=report.sta1%></span></td>
-              <td>ETA</td>
-              <td><span style="<%=style.underline%> min-width:75px;">
-                  <%=report.eta1%></span></td>
-              <td>ATA</td>
-              <td><span style="<%=style.underline%> min-width:75px;">
-                  <%=report.ata1%></span></td>
-            </tr>
-          </table>
-        </td>
-        <td colspan="2" style="padding-left: 8px;">
-          <table style="width:350px;">
-            <tr>
-              <td>STA</td>
-              <td><span style="<%=style.underline%> min-width:75px;">
-                  <%=report.sta2%></span></td>
-              <td>ETA</td>
-              <td><span style="<%=style.underline%> min-width:75px;">
-                  <%=report.eta2%></span></td>
-              <td>ATA</td>
-              <td><span style="<%=style.underline%> min-width:75px;">
-                  <%=report.ata2%></span></td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-      <tr>
-        <td style="<%=style.tablelabel%>">bay / gate</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.baygate1%></span></td>
-        <td style="<%=style.tablelabel%>">bay / gate</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.baygate2%></span></td>
-      </tr>
-      <tr>
-        <td style="<%=style.tablelabel%>">disemarkation</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.disemark%></span></td>
-        <td style="<%=style.tablelabel%>">crew arr. gate</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.crew%></span></td>
-      </tr>
-      <tr>
-        <td style="<%=style.tablelabel%>">t/s same plane</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.TSsamePlane%></span></td>
-        <td style="<%=style.tablelabel%>">inform boarding</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.inform%></span></td>
-      </tr>
-      <tr>
-        <td style="<%=style.tablelabel%>">ciq</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.ciq%></span></td>
-        <td style="<%=style.tablelabel%>">start boarding</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.start%></span></td>
-      </tr>
-      <tr>
-        <td style="<%=style.tablelabel%>">t/s card distributed</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.TScardDist%></span></td>
-        <td style="<%=style.tablelabel%>">complete boarding</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.complete%></span></td>
-      </tr>
-      <tr>
-        <td style="<%=style.tablelabel%>">s/p onboard</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.SQ%></span></td>
-        <td style="<%=style.tablelabel%>">joining</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.joining%></span></td>
-      </tr>
-      <tr>
-        <td style="<%=style.tablelabel%>">gate opened</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.gateOpened%></span></td>
-        <td style="<%=style.tablelabel%>">transfer</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.transfer%></span></td>
-      </tr>
-      <tr>
-        <td style="<%=style.tablelabel%>">gate closed</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.gateClosed%></span></td>
-        <td style="<%=style.tablelabel%>">same plane reboard</td>
-        <td style="<%=style.tablefill%>"><span style="<%=style.spanfill%>">
-            <%=report.samePlaneReboard%></span></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td style="border-right: 1px solid  black;"></td>
-        <td colspan="2" style="padding-left: 8px;">
-          <table style="width:350px;">
-            <tr>
-              <td>IATCI</td>
-              <td><span style="<%=style.underline%> min-width:120px;">
-                  <%=report.iatci%></span></td>
-              <td>OSTCI</td>
-              <td><span style="<%=style.underline%> min-width:120px;">
-                  <%=report.ostci%></span></td>
-            </tr>
-          </table>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td>STAFF ASSIGNED</td>
-        <td style="<%=style.underline%> min-width:620px;">
-          <%=report.staff%>
-        </td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td nowrap>BOARDING PASS / IMM CARD / TICKET COLLECTED BY</td>
-        <td style="<%=style.underline%> min-width:240px;">
-          <%=report.collected%>
-        </td>
-        <td>BOCO BY</td>
-        <td style="<%=style.underline%> min-width:100px;">
-          <%=report.boco%>
-        </td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td>BUS CO-ORDINATOR</td>
-        <td style="<%=style.underline%> min-width:210px;">
-          <%=report.busCo%>
-        </td>
-        <td>STAFF STAND BY AT A/C SIDE</td>
-        <td style="<%=style.underline%> min-width:205px;">
-          <%=report.staffStand%>
-        </td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td>BOARDING ANNOUNCED BY</td>
-        <td style="<%=style.underline%> min-width:550px;">
-          <%=report.boardingAnnounced%>
-        </td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td>BAGGAGE INTERCEPTED BY</td>
-        <td style="<%=style.underline%> min-width:400px;">
-          <%=report.baggageBy%>
-        </td>
-        <td>TOTAL</td>
-        <td style="<%=style.underline%> min-width:90px;">
-          <%=report.baggageTotal%>
-        </td>
-        <td>PCS</td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td>BABY STROLLER INTERCEPTED BY</td>
-        <td style="<%=style.underline%> min-width:367px;">
-          <%=report.babyStrollerBy%>
-        </td>
-        <td>TOTAL</td>
-        <td style="<%=style.underline%> min-width:90px;">
-          <%=report.babyStrollerTotal%>
-        </td>
-        <td>PCS</td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td>RESTRICTED ITEM COLLECTED BY</td>
-        <td style="<%=style.underline%> min-width:369px;">
-          <%=report.restrictedItemBy%>
-        </td>
-        <td>TOTAL</td>
-        <td style="<%=style.underline%> min-width:90px;">
-          <%=report.restrictedItemTotal%>
-        </td>
-        <td>PCS</td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td>DOCUMENT : CHECKED / MATCHED BY</td>
-        <td style="<%=style.underline%> min-width:490px;">
-          <%=report.docCheck%>
-        </td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td style="width:200px">BOARDING BY PRIORITY</td>
-        <td style="width:200px">
-          <input type="checkbox" <% if (report.byPrior==='yes' ) { %>
-          checked
-          <% } %> >YES
-          <input type="checkbox" <% if (report.byPrior==='no' ) { %>
-          checked
-          <% } %>>NO</td>
-        <td style="width:200px">BOARDING BY ROWS</td>
-        <td style="width:200px">
-          <input type="checkbox" <% if (report.byRows==='yes' ) { %>
-          checked
-          <% } %>>YES
-          <input type="checkbox" <% if (report.byRows==='no' ) { %>
-          checked
-          <% } %>>NO</td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td>SPECIAL CASE ( ARR / DEP )</td>
-        <td style="<%=style.underline%> min-width:290px;">
-          <%=report.specialCase%>
-        </td>
-        <td>HANDLED BY</td>
-        <td style="<%=style.underline%> min-width:180px;">
-          <%=report.handledBy%>
-        </td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td>KO</td>
-        <td style="<%=style.underline%> min-width:120px;">
-          <%=report.ko%>
-        </td>
-        <td>KO-B</td>
-        <td style="<%=style.underline%> min-width:120px;">
-          <%=report.koB%>
-        </td>
-        <td>LCS</td>
-        <td style="<%=style.underline%> min-width:120px;">
-          <%=report.lcs%>
-        </td>
-        <td>CSS / GATE LEADER</td>
-        <td style="<%=style.underline%> min-width:150px;">
-          <%=report.gateLeader%>
-        </td>
-      </tr>
-    </table>
-    <table style="width: 720px; padding: 10px 0px;">
-      <th style="text-align: left;">REMARKS / IRREGULARITIES :</th>
-      <tr>
-        <td style="height: 250px; word-wrap: break-word; vertical-align: top;">
-          <div style="max-width: 700px; line-height: 1em; padding: 0px 10px;">
-            <p>
-              <%=report.remark%>
-            </p>
-          </div>
-        </td>
-      </tr>
-    </table>
-    <table style="<%=style.table%> margin-bottom: 50px;">
-      <tr>
-        <td width="620px"></td>
-        <td>F — KP — 100 Revision No. 04</td>
-      </tr>
-    </table>
-  </div>
-  <!-- Page 2 -->
-  <div style="height: 100%; width: 100%; margin:auto;">
-    <table style="<%=style.table%> text-align:center; margin-top: 50px;">
-      <tr>
-        <td>
-          <h3>KP AIRSIDE TASK CHECKLIST</h3>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <span>PLEASE CHECK YOUR DAILY JOB ASSIGNMENT</span>
-        </td>
-      </tr>
-    </table>
-    <table style="width: 700px; margin: 20px 30px; padding: 20px;">
-      <tr>
-        <th>ARRIVAL</th>
-        <th>DEPARTURE</th>
-      </tr>
-      <tr>
-        <td>
-          <input type="checkbox" class="arrival" <% if (checklist.arrive.outbound) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">OUTBOUND CONNECTIONS SUMMARY</span>
-        </td>
-        <td>
-          <input type="checkbox" class="departure" <% if (checklist.depart.inbound) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">INBOUND CONNECTION SUMMARY</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="checkbox" class="arrival" <% if (checklist.arrive.ACParking) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">A/C PARKING BAY</span>
-        </td>
-        <td>
-          <input type="checkbox" class="departure" <% if (checklist.depart.ACParking) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">A/C PARKING BAY</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="checkbox" class="arrival" <% if (checklist.arrive.loadInfo) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">PASSENGER LOAD INFORMATION</span>
-        </td>
-        <td>
-          <input type="checkbox" class="departure" <% if (checklist.depart.limitedTag) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">LIMITED RELEASE TAG</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="checkbox" class="arrival" <% if (checklist.arrive.countMachine) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">COUNTING MACHINE</span>
-        </td>
-        <td>
-          <input type="checkbox" class="departure" <% if (checklist.depart.fragile) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">FRAGILE TAG</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="checkbox" class="arrival" <% if (checklist.arrive.card) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">GATE / TRANSIT CARD</span>
-        </td>
-        <td>
-          <input type="checkbox" class="departure" <% if (checklist.depart.envelope) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">ENVELOPE FOR RESTRICTED ITEM</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="checkbox" class="arrival" <% if (checklist.arrive.arrange) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">TRANSPORTATION ARRANGEMENT</span>
-        </td>
-        <td>
-          <input type="checkbox" class="departure" <% if (checklist.depart.bus) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">BUS RELEASE FORM FOR DRIVER</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="checkbox" class="arrival" <% if (checklist.arrive.conInfo) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">SHORT CONNECTING INFORMATION</span>
-        </td>
-        <td>
-          <input type="checkbox" class="departure" <% if (checklist.depart.stkPax) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">STICKERS FOR INTERNATIONAL PAX</span>
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>
-          <input type="checkbox" class="departure" <% if (checklist.depart.stkFlight) { %>checked
-          <% } %> ><span style="padding: 0px 20px;">STICKERS FOR FLIGHT COMBINED</span>
-        </td>
-      </tr>
-    </table>
-    <table style="<%=style.table%> margin: 20px 30px; padding:10px;">
-      <th style="text-align: left;">REMARKS / IRREGULARITIES :</th>
-      <tr>
-        <td style="height: 300px; word-wrap: break-word; vertical-align: top;">
-          <div style="max-width: 700px; line-height: 1em; padding: 0px 10px;">
-            <p>
-              <%=checklist.remark%>
-            </p>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </div>
+      <table style="<%=style.table%>">
+        <tr>
+          <td>FLIGHT NO.</td>
+          <td style="<%=style.fill%> width:100px;"><%=report.flightNo%></td>
+          <td>DATE</td>
+          <td style="<%=style.fill%> width:100px;"><%=report.date%></td>
+          <td>A/C REGISTERATION</td>
+          <td style="<%=style.fill%> width:140px;"><%=report.ACregis%></td>
+          <td>A/C TYPE</td>
+          <td style="<%=style.fill%> width:80px;"><%=report.ACtype%></td>
+        </tr>
+      </table>
 
-  <!-- <script>
-    if (!<%= checklist.arrive.checked %>) {
-      var checkboxs = document.getElementsByClassName("arrival");
-    }else if (!<%= checklist.depart.checked %>) {
-      var checkboxs = document.getElementsByClassName("departure");
-    }
-    // var checkbox = document.getElementsByClassName("some-checkbox");
-    // checkbox.indeterminate = true;
+      <table
+        style="<%=style.table%> margin: 20px 0px; border: 1px solid  black;"
+      >
+        <tr style="border: 1px solid black;">
+          <th style="width:360px; border: 1px solid black;" colspan="2">
+            ARRIVAL
+          </th>
+          <th style="width:360px; border: 1px solid black;" colspan="2">
+            DEPARTURE
+          </th>
+        </tr>
+        <tr>
+          <td style="<%=style.tablelabel%>">port of origin</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.POO%></span>
+          </td>
+          <td style="<%=style.tablelabel%>">port of destination</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.POD%></span>
+          </td>
+        </tr>
+        <tr>
+          <td
+            colspan="2"
+            style="padding-left: 8px; border-right: 1px solid black;"
+          >
+            <table style="width:350px;">
+              <tr>
+                <td>STA</td>
+                <td>
+                  <span style="<%=style.underline%> min-width:75px;">
+                    <%=report.sta1%></span
+                  >
+                </td>
+                <td>ETA</td>
+                <td>
+                  <span style="<%=style.underline%> min-width:75px;">
+                    <%=report.eta1%></span
+                  >
+                </td>
+                <td>ATA</td>
+                <td>
+                  <span style="<%=style.underline%> min-width:75px;">
+                    <%=report.ata1%></span
+                  >
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td colspan="2" style="padding-left: 8px;">
+            <table style="width:350px;">
+              <tr>
+                <td>STA</td>
+                <td>
+                  <span style="<%=style.underline%> min-width:75px;">
+                    <%=report.sta2%></span
+                  >
+                </td>
+                <td>ETA</td>
+                <td>
+                  <span style="<%=style.underline%> min-width:75px;">
+                    <%=report.eta2%></span
+                  >
+                </td>
+                <td>ATA</td>
+                <td>
+                  <span style="<%=style.underline%> min-width:75px;">
+                    <%=report.ata2%></span
+                  >
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="<%=style.tablelabel%>">bay / gate</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.baygate1%></span>
+          </td>
+          <td style="<%=style.tablelabel%>">bay / gate</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.baygate2%></span>
+          </td>
+        </tr>
+        <tr>
+          <td style="<%=style.tablelabel%>">disemarkation</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.disemark%></span>
+          </td>
+          <td style="<%=style.tablelabel%>">crew arr. gate</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.crew%></span>
+          </td>
+        </tr>
+        <tr>
+          <td style="<%=style.tablelabel%>">t/s same plane</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.TSsamePlane%></span>
+          </td>
+          <td style="<%=style.tablelabel%>">inform boarding</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.inform%></span>
+          </td>
+        </tr>
+        <tr>
+          <td style="<%=style.tablelabel%>">ciq</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.ciq%></span>
+          </td>
+          <td style="<%=style.tablelabel%>">start boarding</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.start%></span>
+          </td>
+        </tr>
+        <tr>
+          <td style="<%=style.tablelabel%>">t/s card distributed</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.TScardDist%></span>
+          </td>
+          <td style="<%=style.tablelabel%>">complete boarding</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.complete%></span>
+          </td>
+        </tr>
+        <tr>
+          <td style="<%=style.tablelabel%>">s/p onboard</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.SQ%></span>
+          </td>
+          <td style="<%=style.tablelabel%>">joining</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.joining%></span>
+          </td>
+        </tr>
+        <tr>
+          <td style="<%=style.tablelabel%>">gate opened</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.gateOpened%></span>
+          </td>
+          <td style="<%=style.tablelabel%>">transfer</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.transfer%></span>
+          </td>
+        </tr>
+        <tr>
+          <td style="<%=style.tablelabel%>">gate closed</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>"> <%=report.gateClosed%></span>
+          </td>
+          <td style="<%=style.tablelabel%>">same plane reboard</td>
+          <td style="<%=style.tablefill%>">
+            <span style="<%=style.spanfill%>">
+              <%=report.samePlaneReboard%></span
+            >
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td style="border-right: 1px solid  black;"></td>
+          <td colspan="2" style="padding-left: 8px;">
+            <table style="width:350px;">
+              <tr>
+                <td>IATCI</td>
+                <td>
+                  <span style="<%=style.underline%> min-width:120px;">
+                    <%=report.iatci%></span
+                  >
+                </td>
+                <td>OSTCI</td>
+                <td>
+                  <span style="<%=style.underline%> min-width:120px;">
+                    <%=report.ostci%></span
+                  >
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
 
-    [].forEach.call(checkboxs, function (checkbox) {
-      checkbox.indeterminate = true;
-      console.log(checkbox)
-    });
-  </script> -->
-</body>
+      <table>
+        <tr>
+          <td>STAFF ASSIGNED</td>
+          <td style="<%=style.underline%> min-width:620px;">
+            <%=report.staff%>
+          </td>
+        </tr>
+      </table>
 
+      <table>
+        <tr>
+          <td nowrap>BOARDING PASS / IMM CARD / TICKET COLLECTED BY</td>
+          <td style="<%=style.underline%> min-width:240px;">
+            <%=report.collected%>
+          </td>
+          <td>BOCO BY</td>
+          <td style="<%=style.underline%> min-width:100px;">
+            <%=report.boco%>
+          </td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td>BUS CO-ORDINATOR</td>
+          <td style="<%=style.underline%> min-width:210px;">
+            <%=report.busCo%>
+          </td>
+          <td>STAFF STAND BY AT A/C SIDE</td>
+          <td style="<%=style.underline%> min-width:205px;">
+            <%=report.staffStand%>
+          </td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td>BOARDING ANNOUNCED BY</td>
+          <td style="<%=style.underline%> min-width:550px;">
+            <%=report.boardingAnnounced%>
+          </td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td>BAGGAGE INTERCEPTED BY</td>
+          <td style="<%=style.underline%> min-width:400px;">
+            <%=report.baggageBy%>
+          </td>
+          <td>TOTAL</td>
+          <td style="<%=style.underline%> min-width:90px;">
+            <%=report.baggageTotal%>
+          </td>
+          <td>PCS</td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td>BABY STROLLER INTERCEPTED BY</td>
+          <td style="<%=style.underline%> min-width:367px;">
+            <%=report.babyStrollerBy%>
+          </td>
+          <td>TOTAL</td>
+          <td style="<%=style.underline%> min-width:90px;">
+            <%=report.babyStrollerTotal%>
+          </td>
+          <td>PCS</td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td>RESTRICTED ITEM COLLECTED BY</td>
+          <td style="<%=style.underline%> min-width:369px;">
+            <%=report.restrictedItemBy%>
+          </td>
+          <td>TOTAL</td>
+          <td style="<%=style.underline%> min-width:90px;">
+            <%=report.restrictedItemTotal%>
+          </td>
+          <td>PCS</td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td>DOCUMENT : CHECKED / MATCHED BY</td>
+          <td style="<%=style.underline%> min-width:490px;">
+            <%=report.docCheck%>
+          </td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td style="width:200px">BOARDING BY PRIORITY</td>
+          <td style="width:200px">
+            <input type="checkbox" <% if (report.byPrior==='yes' ) { %> checked
+            <% } %> >YES <input type="checkbox" <% if (report.byPrior==='no' ) {
+            %> checked <% } %>>NO
+          </td>
+          <td style="width:200px">BOARDING BY ROWS</td>
+          <td style="width:200px">
+            <input type="checkbox" <% if (report.byRows==='yes' ) { %> checked
+            <% } %>>YES <input type="checkbox" <% if (report.byRows==='no' ) {
+            %> checked <% } %>>NO
+          </td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td>SPECIAL CASE ( ARR / DEP )</td>
+          <td style="<%=style.underline%> min-width:290px;">
+            <%=report.specialCase%>
+          </td>
+          <td>HANDLED BY</td>
+          <td style="<%=style.underline%> min-width:180px;">
+            <%=report.handledBy%>
+          </td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td>KO</td>
+          <td style="<%=style.underline%> min-width:120px;"><%=report.ko%></td>
+          <td>KO-B</td>
+          <td style="<%=style.underline%> min-width:120px;"><%=report.koB%></td>
+          <td>LCS</td>
+          <td style="<%=style.underline%> min-width:120px;"><%=report.lcs%></td>
+          <td>CSS / GATE LEADER</td>
+          <td style="<%=style.underline%> min-width:150px;">
+            <%=report.gateLeader%>
+          </td>
+        </tr>
+      </table>
+
+      <table style="width: 720px; padding: 10px 0px;">
+        <th style="text-align: left;">REMARKS / IRREGULARITIES :</th>
+        <tr>
+          <td
+            style="height: 250px; word-wrap: break-word; vertical-align: top;"
+          >
+            <div style="max-width: 700px; line-height: 1em; padding: 0px 10px;">
+              <p><%=report.remark%></p>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <table style="<%=style.table%> margin-bottom: 50px;">
+        <tr>
+          <td width="620px"></td>
+          <td>F — KP — 100 Revision No. 04</td>
+        </tr>
+      </table>
+    </div>
+    <!-- Page 2 -->
+    <div style="height: 100%; width: 100%; margin:auto;">
+      <table style="<%=style.table%> text-align:center; margin-top: 50px;">
+        <tr>
+          <td><h3>KP AIRSIDE TASK CHECKLIST</h3></td>
+        </tr>
+        <tr>
+          <td><span>PLEASE CHECK YOUR DAILY JOB ASSIGNMENT</span></td>
+        </tr>
+      </table>
+
+      <table style="width: 700px; margin: 20px 30px; padding: 20px;">
+        <tr>
+          <th>ARRIVAL</th>
+          <th>DEPARTURE</th>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="checkbox"
+              class="arrival"
+              <%
+              if
+              (checklist.arrive.outbound)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >OUTBOUND CONNECTIONS SUMMARY</span
+            >
+          </td>
+          <td>
+            <input
+              type="checkbox"
+              class="departure"
+              <%
+              if
+              (checklist.depart.inbound)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >INBOUND CONNECTION SUMMARY</span
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="checkbox"
+              class="arrival"
+              <%
+              if
+              (checklist.arrive.ACParking)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >A/C PARKING BAY</span
+            >
+          </td>
+          <td>
+            <input
+              type="checkbox"
+              class="departure"
+              <%
+              if
+              (checklist.depart.ACParking)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >A/C PARKING BAY</span
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="checkbox"
+              class="arrival"
+              <%
+              if
+              (checklist.arrive.loadInfo)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >PASSENGER LOAD INFORMATION</span
+            >
+          </td>
+          <td>
+            <input
+              type="checkbox"
+              class="departure"
+              <%
+              if
+              (checklist.depart.limitedTag)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >LIMITED RELEASE TAG</span
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="checkbox"
+              class="arrival"
+              <%
+              if
+              (checklist.arrive.countMachine)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >COUNTING MACHINE</span
+            >
+          </td>
+          <td>
+            <input
+              type="checkbox"
+              class="departure"
+              <%
+              if
+              (checklist.depart.fragile)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >FRAGILE TAG</span
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="checkbox"
+              class="arrival"
+              <%
+              if
+              (checklist.arrive.card)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >GATE / TRANSIT CARD</span
+            >
+          </td>
+          <td>
+            <input
+              type="checkbox"
+              class="departure"
+              <%
+              if
+              (checklist.depart.envelope)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >ENVELOPE FOR RESTRICTED ITEM</span
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="checkbox"
+              class="arrival"
+              <%
+              if
+              (checklist.arrive.arrange)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >TRANSPORTATION ARRANGEMENT</span
+            >
+          </td>
+          <td>
+            <input
+              type="checkbox"
+              class="departure"
+              <%
+              if
+              (checklist.depart.bus)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >BUS RELEASE FORM FOR DRIVER</span
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="checkbox"
+              class="arrival"
+              <%
+              if
+              (checklist.arrive.conInfo)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >SHORT CONNECTING INFORMATION</span
+            >
+          </td>
+          <td>
+            <input
+              type="checkbox"
+              class="departure"
+              <%
+              if
+              (checklist.depart.stkPax)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >STICKERS FOR INTERNATIONAL PAX</span
+            >
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input
+              type="checkbox"
+              class="departure"
+              <%
+              if
+              (checklist.depart.stkFlight)
+              {
+              %
+            />checked <% } %> ><span style="padding: 0px 20px;"
+              >STICKERS FOR FLIGHT COMBINED</span
+            >
+          </td>
+        </tr>
+      </table>
+
+      <table style="<%=style.table%> margin: 20px 30px; padding:10px;">
+        <th style="text-align: left;">REMARKS / IRREGULARITIES :</th>
+        <tr>
+          <td
+            style="height: 300px; word-wrap: break-word; vertical-align: top;"
+          >
+            <div style="max-width: 700px; line-height: 1em; padding: 0px 10px;">
+              <p><%=checklist.remark%></p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!--
+      <script>
+        if (!<%= checklist.arrive.checked %>) {
+          var checkboxs = document.getElementsByClassName("arrival");
+        }else if (!<%= checklist.depart.checked %>) {
+          var checkboxs = document.getElementsByClassName("departure");
+        }
+        // var checkbox = document.getElementsByClassName("some-checkbox");
+        // checkbox.indeterminate = true;
+
+        [].forEach.call(checkboxs, function (checkbox) {
+          checkbox.indeterminate = true;
+          console.log(checkbox)
+        });
+      </script>
+    -->
+  </body>
 </html>
