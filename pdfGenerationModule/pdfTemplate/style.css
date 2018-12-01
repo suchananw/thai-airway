@@ -1,7 +1,3 @@
-@font-face {
-  font-family: "Calibri";
-  src: url("/pdfGenerationModule/pdfTemplate/Calibri.ttf");
-}
 html,
 body {
   font-family: "Calibri";
