@@ -25,8 +25,8 @@ const config = {
 // // PDF with stream and display on cilent side
 function generatePDF(html, res) {
   return htmlToPdf.create(html, config).toBuffer(function (err, buffer) {
-    console.log(buffer)
-    res.send(buffer, "binary");
+    console.log(buffer);
+    res.status(200).send(buffer, "binary");
   });
 }
 
