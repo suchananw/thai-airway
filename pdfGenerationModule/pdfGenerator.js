@@ -24,13 +24,9 @@ const config = {
 
 // // PDF with stream and display on cilent side
 function generatePDF(html, res) {
-  return htmlToPdf.create(html, config).toStream(function (err, stream) {
-    console.log(stream)
-    stream.pipe(res);
-    // res.setHeader('Content-Transfer-Encoding', 'binary');
-    // res.setHeader('Content-Type', 'application/octet-stream');
-    // // res.send(buffer);
-    // res.end(buffer, "binary");
+  return htmlToPdf.create(html, config).toBuffer(function (err, buffer) {
+    console.log(buffer)
+    res.send(buffer, "binary");
   });
 }
 
