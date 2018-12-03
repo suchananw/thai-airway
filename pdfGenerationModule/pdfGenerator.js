@@ -27,12 +27,9 @@ function generatePDF(html, res) {
   const filename = "report-" + new Date().getTime() + ".pdf";
   return htmlToPdf.create(html, config).toBuffer(function (err, buffer) {
     console.log(buffer)
-    res.writeHead(200, {
-      "Content-Type": "application/pdf",
-      "Content-Disposition": "attachment; filename=" + filename
-    });
-    res.send(buffer);
-    // return Buffer.from(buffer, "binary");
+    res.type("application/pdf");
+    // res.send(buffer);
+    res.end(Buffer.from(buffer, "binary"));
   });
 }
 
