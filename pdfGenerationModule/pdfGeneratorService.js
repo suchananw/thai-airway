@@ -9,11 +9,11 @@ function pdfGeneratorService(data, res) {
     table: "width:520px; border-collapse:collapse;",
     td: "height:25px; border-collapse:collapse;",
     fill: "height:25px; text-align: center; border-bottom: 1px solid black;",
-    tablelabel: "padding-left: 10px; text-transform: uppercase; width: 100px;",
+    tablelabel: "padding-left: 10px; text-transform: uppercase; width: 150px;",
     tablefill:
-      "text-align: center; width: 150px; border-right: 1px solid black;",
+      "text-align: center; width: 100px; border-right: 1px solid black;",
     spanfill:
-      "display: table-cell; min-width:70px; border-bottom: 1px solid black;",
+      "display: table-cell; min-width:80px; border-bottom: 1px solid black;",
     underline: "display: table-cell; border-bottom: 1px solid black;"
   };
 

@@ -57,10 +57,15 @@ class App extends Component {
         console.log(formData);
 
         const filename = "report-" + new Date().getTime() + ".pdf";
-        axios.post(`/api/files/${filename}`, this.state).then(response => {
-          //Build a URL from the file
+        axios.post(`/api/files/${filename}`, this.state, { responseType: 'blob' }).then(response => {
+          console.log("response in client")
           console.log("response ", response)
-          const fileURL = URL.createObjectURL(response);
+          //Create a Blob from the PDF Stream
+          const file = new Blob(
+            [response.data],
+            { type: 'application/pdf' });
+          //Build a URL from the file
+          const fileURL = URL.createObjectURL(file);
           //Open the URL on new Window
           window.open(fileURL);
         })

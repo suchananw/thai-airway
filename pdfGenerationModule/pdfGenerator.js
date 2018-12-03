@@ -26,7 +26,9 @@ const config = {
 function generatePDF(html, res) {
   return htmlToPdf.create(html, config).toBuffer(function (err, buffer) {
     console.log(buffer)
-    res.type("application/pdf");
+    res.setHeader('Content-Transfer-Encoding', 'binary');
+    res.setHeader('Content-Type', 'application/octet-stream');
+    // res.type("application/pdf");
     // res.send(buffer);
     res.end(buffer, "binary");
   });
