@@ -8,7 +8,7 @@ const config = {
   paginationOffset: 2
 };
 
-// // PDF not support css /with buffer
+// // PDF /with buffer
 // function generatePDF(html, res) {
 //   const filename = "report-" + new Date().getTime() + ".pdf";
 //   return htmlToPdf.create(html, config).toBuffer(function(err, buffer) {
@@ -22,15 +22,13 @@ const config = {
 //   });
 // }
 
-// // PDF not support css /with stream
+// // PDF with stream and display on cilent side
 function generatePDF(html, res) {
   const filename = "report-" + new Date().getTime() + ".pdf";
-  return htmlToPdf.create(html, config).toStream(function (err, stream) {
-    res.writeHead(200, {
-      "Content-Type": "application/pdf",
-      "Content-Disposition": "attachment; filename=" + filename,
-    });
-    stream.pipe(res)
+  return htmlToPdf.create(html, config).toBuffer(function (err, buffer) {
+    res.type("application/pdf");
+    res.send(buffer);
+    // stream.pipe(res)
     // return Buffer.from(buffer, "binary");
   });
 }
