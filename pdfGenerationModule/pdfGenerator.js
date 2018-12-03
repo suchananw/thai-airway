@@ -11,14 +11,14 @@ const config = {
 // PDF not support css
 function generatePDF(html, res) {
   const filename = "report-" + new Date().getTime() + ".pdf";
-  return htmlToPdf.create(html, config).toBuffer(function(err, buffer) {
+  return htmlToPdf.create(html, config).toBuffer(function (err, buffer) {
+    const file = fs.writeFileSync(filename, buffer)
     res.writeHead(200, {
       "Content-Type": "application/pdf",
       "Content-Disposition": "attachment; filename=" + filename,
-      "Content-Length": buffer.length
+      "Content-Length": file.length
     });
-    res.end(buffer);
-    // return Buffer.from(buffer, "binary");
+    res.download(file);
   });
 }
 
