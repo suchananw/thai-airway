@@ -6,7 +6,7 @@ function pdfGeneratorService(data, res) {
   data["logo"] =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShFvsk2nXDB5cYdS05xx7HWJrouFAQSzR10r0MatepqFTFOtP7";
   data["style"] = {
-    table: "width:720px; border-collapse:collapse;",
+    table: "width:680px; border-collapse:collapse;",
     td: "height:25px; border-collapse:collapse;",
     fill: "height:25px; text-align: center; border-bottom: 1px solid black;",
     tablelabel: "padding-left: 10px; text-transform: uppercase; width: 200px;",
@@ -21,14 +21,14 @@ function pdfGeneratorService(data, res) {
 
   return (
     htmlGenerator(templateFile, data) // Builds HTML
-      .then(function(html) {
+      .then(function (html) {
         return generatePDF(html, res); // Builds PDF
       })
       // .then(function(success) {
       //   console.log("PDF generation successful at " + outputFile);
       //   return success;
       // })
-      .catch(function(err) {
+      .catch(function (err) {
         console.log("ERROR in PDF generation : " + err);
         return false;
       })
