@@ -58,6 +58,7 @@ class App extends Component {
 
         axios.post("/api/files/printPDF", this.state).then(response => {
           //Build a URL from the file
+          console.log(response)
           const fileURL = URL.createObjectURL(response);
           //Open the URL on new Window
           window.open(fileURL);
