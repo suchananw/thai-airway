@@ -26,7 +26,11 @@ const config = {
 function generatePDF(html, res) {
   return htmlToPdf.create(html, config).toBuffer(function (err, buffer) {
     console.log(buffer);
-    res.status(200).send(buffer, "binary");
+    res.writeHead(200, {
+      "Content-Type": "application/pdf",
+      "Content-Length": buffer.length
+    });
+    res.send(buffer, "binary");
   });
 }
 
