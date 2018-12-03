@@ -56,7 +56,8 @@ class App extends Component {
         const formData = this.state;
         console.log(formData);
 
-        axios.post("/api/files/printPDF", this.state).then(response => {
+        const filename = "report-" + new Date().getTime() + ".pdf";
+        axios.post(`/api/files/${filename}`, this.state).then(response => {
           //Build a URL from the file
           console.log(response)
           const fileURL = URL.createObjectURL(response);

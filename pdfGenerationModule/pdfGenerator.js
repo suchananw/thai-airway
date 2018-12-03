@@ -25,14 +25,13 @@ const config = {
 // // PDF with stream and display on cilent side
 function generatePDF(html, res) {
   const filename = "report-" + new Date().getTime() + ".pdf";
-  return htmlToPdf.create(html, config).toStream(function (err, stream) {
-    fs.createWriteStream(filename)
+  return htmlToPdf.create(html, config).toBuffer(function (err, buffer) {
+    console.log(buffer)
     res.writeHead(200, {
       "Content-Type": "application/pdf",
       "Content-Disposition": "attachment; filename=" + filename
     });
-    stream.pipe(res)
-    // stream.pipe(res)
+    res.send(buffer);
     // return Buffer.from(buffer, "binary");
   });
 }

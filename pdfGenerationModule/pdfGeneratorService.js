@@ -6,12 +6,12 @@ function pdfGeneratorService(data, res) {
   data["logo"] =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShFvsk2nXDB5cYdS05xx7HWJrouFAQSzR10r0MatepqFTFOtP7";
   data["style"] = {
-    table: "width:550px; border-collapse:collapse;",
+    table: "width:500px; border-collapse:collapse;",
     td: "height:25px; border-collapse:collapse;",
     fill: "height:25px; text-align: center; border-bottom: 1px solid black;",
     tablelabel: "padding-left: 10px; text-transform: uppercase; width: 100px;",
     tablefill:
-      "text-align: center; width: 80px; border-right: 1px solid black;",
+      "text-align: center; width: 150px; border-right: 1px solid black;",
     spanfill:
       "display: table-cell; min-width:70px; border-bottom: 1px solid black;",
     underline: "display: table-cell; border-bottom: 1px solid black;"
