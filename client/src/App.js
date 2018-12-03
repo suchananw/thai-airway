@@ -56,7 +56,15 @@ class App extends Component {
         const formData = this.state;
         console.log(formData);
 
-        axios.post("/api/files/printPDF", this.state);
+        axios.post("/api/files/printPDF", this.state).then(response => {
+          //Build a URL from the file
+          const fileURL = URL.createObjectURL(response);
+          //Open the URL on new Window
+          window.open(fileURL);
+        })
+          .catch(error => {
+            console.log(error);
+          });
       }
     );
   };

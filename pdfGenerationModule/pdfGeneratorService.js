@@ -6,7 +6,7 @@ function pdfGeneratorService(data, res) {
   data["logo"] =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShFvsk2nXDB5cYdS05xx7HWJrouFAQSzR10r0MatepqFTFOtP7";
   data["style"] = {
-    table: "width:680px; border-collapse:collapse;",
+    table: "width:640px; border-collapse:collapse;",
     td: "height:25px; border-collapse:collapse;",
     fill: "height:25px; text-align: center; border-bottom: 1px solid black;",
     tablelabel: "padding-left: 10px; text-transform: uppercase; width: 200px;",
