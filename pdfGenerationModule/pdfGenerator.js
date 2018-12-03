@@ -24,12 +24,11 @@ const config = {
 
 // // PDF with stream and display on cilent side
 function generatePDF(html, res) {
-  const filename = "report-" + new Date().getTime() + ".pdf";
   return htmlToPdf.create(html, config).toBuffer(function (err, buffer) {
     console.log(buffer)
     res.type("application/pdf");
     // res.send(buffer);
-    res.end(Buffer.from(buffer, "binary"));
+    res.end(buffer, "binary");
   });
 }
 

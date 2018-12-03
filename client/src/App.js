@@ -59,7 +59,7 @@ class App extends Component {
         const filename = "report-" + new Date().getTime() + ".pdf";
         axios.post(`/api/files/${filename}`, this.state).then(response => {
           //Build a URL from the file
-          console.log(response)
+          console.log("response ", response)
           const fileURL = URL.createObjectURL(response);
           //Open the URL on new Window
           window.open(fileURL);
