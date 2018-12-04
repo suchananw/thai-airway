@@ -70,7 +70,15 @@ class App extends Component {
           //Build a URL from the file
           const fileURL = URL.createObjectURL(file);
           //Open the URL on new Window
-          window.open(fileURL);
+          // window.open(fileURL);
+          //New window and display pdf
+          var a = document.createElement("a");
+          document.body.appendChild(a);
+          a.style = "display: none";
+          a.href = fileURL;
+          a.download = filename;
+          a.target = '_blank';
+          a.click();
         })
           .catch(error => {
             console.log(error);
