@@ -63,11 +63,16 @@ class App extends Component {
           //Create a Blob from the PDF Stream
           const file = new Blob(
             [response.data],
-            { type: 'application/pdf' });
+            {
+              type: 'application/pdf',
+              name: filename
+            });
           //Build a URL from the file
           const fileURL = URL.createObjectURL(file);
           //Open the URL on new Window
-          window.open(fileURL);
+          // window.open(fileURL);
+          var win = window.open();
+          win.document.write('<iframe src="' + fileURL + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>')
         })
           .catch(error => {
             console.log(error);
