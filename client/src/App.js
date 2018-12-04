@@ -56,8 +56,8 @@ class App extends Component {
         const formData = this.state;
         console.log(formData);
 
-        const filename = "report-" + new Date().getTime() + ".pdf";
-        axios.post(`/api/files/${filename}`, this.state, { responseType: 'blob' }).then(response => {
+        const filename = "report-" + new Date().getTime();
+        axios.post(`/api/files/${filename}.pdf`, this.state, { responseType: 'blob' }).then(response => {
           console.log("response in client")
           console.log("response ", response)
           //Create a Blob from the PDF Stream
@@ -70,15 +70,15 @@ class App extends Component {
           //Build a URL from the file
           const fileURL = URL.createObjectURL(file);
           //Open the URL on new Window
-          // window.open(fileURL);
-          //New window and display pdf
-          var a = document.createElement("a");
-          document.body.appendChild(a);
-          a.style = "display: none";
-          a.href = fileURL;
-          a.download = filename;
-          a.target = '_blank';
-          a.click();
+          window.open(fileURL);
+          // //New window and display pdf
+          // var a = document.createElement("a");
+          // document.body.appendChild(a);
+          // a.style = "display: none";
+          // a.href = fileURL;
+          // a.download = filename + ".pdf";
+          // a.target = '_blank';
+          // a.click();
         })
           .catch(error => {
             console.log(error);
@@ -107,7 +107,7 @@ class App extends Component {
           </div>
         ) : this.state.page === "submit" ? (
           <div className="m-3">
-            Form is submited. File downloading...
+            Form is submitted. File downloading...
             <div>
               <input
                 type="button"

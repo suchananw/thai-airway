@@ -25,7 +25,7 @@ const config = {
 // // PDF with stream and display on cilent side
 function generatePDF(html, res) {
   return htmlToPdf.create(html, config).toStream(function (err, stream) {
-    console.log(stream);
+    console.log("stream success");
     // res.writeHead(200, {
     //   "Content-Type": "application/pdf",
     //   "Content-Length": buffer.length
