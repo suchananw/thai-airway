@@ -216,7 +216,7 @@
     <table>
       <tr>
         <td>BOARDING ANNOUNCED BY</td>
-        <td style="<%=style.underline%> min-width:550px;">
+        <td style="<%=style.underline%> min-width:500px;">
           <%=report.boardingAnnounced%>
         </td>
       </tr>
@@ -224,11 +224,11 @@
     <table>
       <tr>
         <td>BAGGAGE INTERCEPTED BY</td>
-        <td style="<%=style.underline%> min-width:400px;">
+        <td style="<%=style.underline%> min-width:340px;">
           <%=report.baggageBy%>
         </td>
         <td>TOTAL</td>
-        <td style="<%=style.underline%> min-width:90px;">
+        <td style="<%=style.underline%> min-width:50px;">
           <%=report.baggageTotal%>
         </td>
         <td>PCS</td>
@@ -237,11 +237,11 @@
     <table>
       <tr>
         <td>BABY STROLLER INTERCEPTED BY</td>
-        <td style="<%=style.underline%> min-width:367px;">
+        <td style="<%=style.underline%> min-width:320px;">
           <%=report.babyStrollerBy%>
         </td>
         <td>TOTAL</td>
-        <td style="<%=style.underline%> min-width:90px;">
+        <td style="<%=style.underline%> min-width:50px;">
           <%=report.babyStrollerTotal%>
         </td>
         <td>PCS</td>
@@ -250,11 +250,11 @@
     <table>
       <tr>
         <td>RESTRICTED ITEM COLLECTED BY</td>
-        <td style="<%=style.underline%> min-width:369px;">
+        <td style="<%=style.underline%> min-width:320px;">
           <%=report.restrictedItemBy%>
         </td>
         <td>TOTAL</td>
-        <td style="<%=style.underline%> min-width:90px;">
+        <td style="<%=style.underline%> min-width:50px;">
           <%=report.restrictedItemTotal%>
         </td>
         <td>PCS</td>
@@ -263,23 +263,23 @@
     <table>
       <tr>
         <td>DOCUMENT : CHECKED / MATCHED BY</td>
-        <td style="<%=style.underline%> min-width:490px;">
+        <td style="<%=style.underline%> min-width:420px;">
           <%=report.docCheck%>
         </td>
       </tr>
     </table>
     <table>
       <tr>
-        <td style="width:200px">BOARDING BY PRIORITY</td>
-        <td style="width:200px">
+        <td style="width:120px">BOARDING BY PRIORITY</td>
+        <td style="width:120px">
           <input type="checkbox" <% if (report.byPrior==='yes' ) { %>
           checked
           <% } %> >YES
           <input type="checkbox" <% if (report.byPrior==='no' ) { %>
           checked
           <% } %>>NO</td>
-        <td style="width:200px">BOARDING BY ROWS</td>
-        <td style="width:200px">
+        <td style="width:120px">BOARDING BY ROWS</td>
+        <td style="width:120px">
           <input type="checkbox" <% if (report.byRows==='yes' ) { %>
           checked
           <% } %>>YES
@@ -291,11 +291,11 @@
     <table>
       <tr>
         <td>SPECIAL CASE ( ARR / DEP )</td>
-        <td style="<%=style.underline%> min-width:290px;">
+        <td style="<%=style.underline%> min-width:230px;">
           <%=report.specialCase%>
         </td>
         <td>HANDLED BY</td>
-        <td style="<%=style.underline%> min-width:180px;">
+        <td style="<%=style.underline%> min-width:150px;">
           <%=report.handledBy%>
         </td>
       </tr>
@@ -303,28 +303,28 @@
     <table>
       <tr>
         <td>KO</td>
-        <td style="<%=style.underline%> min-width:120px;">
+        <td style="<%=style.underline%> min-width:80px;">
           <%=report.ko%>
         </td>
         <td>KO-B</td>
-        <td style="<%=style.underline%> min-width:120px;">
+        <td style="<%=style.underline%> min-width:80px;">
           <%=report.koB%>
         </td>
         <td>LCS</td>
-        <td style="<%=style.underline%> min-width:120px;">
+        <td style="<%=style.underline%> min-width:80px;">
           <%=report.lcs%>
         </td>
         <td>CSS / GATE LEADER</td>
-        <td style="<%=style.underline%> min-width:150px;">
+        <td style="<%=style.underline%> min-width:100px;">
           <%=report.gateLeader%>
         </td>
       </tr>
     </table>
-    <table style="width: 720px; padding: 10px 0px;">
+    <table style="width: 520px; padding: 10px 0px;">
       <th style="text-align: left;">REMARKS / IRREGULARITIES :</th>
       <tr>
         <td style="height: 250px; word-wrap: break-word; vertical-align: top;">
-          <div style="max-width: 700px; line-height: 1em; padding: 0px 10px;">
+          <div style="max-width: 500px; line-height: 1em; padding: 0px 10px;">
             <p>
               <%=report.remark%>
             </p>
@@ -334,7 +334,7 @@
     </table>
     <table style="<%=style.table%> margin-bottom: 50px;">
       <tr>
-        <td width="620px"></td>
+        <td width="500px"></td>
         <td>F — KP — 100 Revision No. 04</td>
       </tr>
     </table>
@@ -353,7 +353,7 @@
         </td>
       </tr>
     </table>
-    <table style="width: 700px; margin: 20px 30px; padding: 20px;">
+    <table style="width: 520px; margin: 20px 30px; padding: 20px;">
       <tr>
         <th>ARRIVAL</th>
         <th>DEPARTURE</th>
@@ -440,7 +440,7 @@
       <th style="text-align: left;">REMARKS / IRREGULARITIES :</th>
       <tr>
         <td style="height: 300px; word-wrap: break-word; vertical-align: top;">
-          <div style="max-width: 700px; line-height: 1em; padding: 0px 10px;">
+          <div style="max-width: 500px; line-height: 1em; padding: 0px 10px;">
             <p>
               <%=checklist.remark%>
             </p>
@@ -450,7 +450,7 @@
     </table>
   </div>
 
-  <!-- <script>
+  <script>
     if (!<%= checklist.arrive.checked %>) {
       var checkboxs = document.getElementsByClassName("arrival");
     }else if (!<%= checklist.depart.checked %>) {
@@ -462,7 +462,7 @@
       checkbox.indeterminate = true;
       console.log(checkbox)
     });
-  </script> -->
+  </script>
 </body>
 
 </html>

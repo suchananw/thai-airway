@@ -30,7 +30,7 @@ function generatePDF(html, res) {
     //   "Content-Type": "application/pdf",
     //   "Content-Length": buffer.length
     // });
-    stream.pipe(res)
+    stream.pipe(res, 'binary')
     // res.send(buffer, "binary");
   });
 }
