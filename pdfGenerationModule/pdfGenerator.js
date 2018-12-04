@@ -24,13 +24,14 @@ const config = {
 
 // // PDF with stream and display on cilent side
 function generatePDF(html, res) {
-  return htmlToPdf.create(html, config).toBuffer(function (err, buffer) {
-    console.log(buffer);
-    res.writeHead(200, {
-      "Content-Type": "application/pdf",
-      "Content-Length": buffer.length
-    });
-    res.send(buffer, "binary");
+  return htmlToPdf.create(html, config).toStream(function (err, stream) {
+    console.log(stream);
+    // res.writeHead(200, {
+    //   "Content-Type": "application/pdf",
+    //   "Content-Length": buffer.length
+    // });
+    stream.pipe(res)
+    // res.send(buffer, "binary");
   });
 }
 
