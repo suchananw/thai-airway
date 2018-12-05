@@ -26,7 +26,7 @@ export default class FormSelect extends Component {
           name={name}
           className="custom-select text-uppercase"
           value={this.props.value}
-          onChange={this.onChange}
+          onChange={this.props.onChange}
         >
           <option>--</option>
           {dropdown}

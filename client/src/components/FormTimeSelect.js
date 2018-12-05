@@ -34,6 +34,7 @@ export default class FormTimeSelect extends Component {
         <select
           className="custom-select"
           name={name}
+          value={this.props.value}
           onChange={this.props.onChange}
         >
           <option>-- --</option>

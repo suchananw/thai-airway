@@ -23,13 +23,14 @@ export default class FormText extends Component {
             disabled
           />
         ) : (
-          <input
-            name={name}
-            type="text"
-            className="form-control"
-            onChange={this.props.onChange}
-          />
-        )}
+            <input
+              name={name}
+              type="text"
+              className="form-control"
+              value={this.props.value}
+              onChange={this.props.onChange}
+            />
+          )}
       </div>
     );
   }

@@ -69,8 +69,6 @@ export default class ChecklistForm extends Component {
     });
   };
 
-  handleClear = () => {};
-
   render() {
     const name1 = [
       "outbound",
@@ -129,12 +127,12 @@ export default class ChecklistForm extends Component {
               />
             </div>
           </div>
-          <input
-            onClick={this.handleClear}
-            type="button"
-            value="Clear"
-            class="btn btn-danger mx-2"
-          />
+          {/*<input
+             onClick={this.handleClear}
+             type="button"
+             value="Clear"
+             class="btn btn-danger mx-2"
+          />*/}
           <input
             onClick={this.props.handleBack}
             type="button"

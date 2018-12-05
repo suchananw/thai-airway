@@ -71,7 +71,7 @@ class App extends Component {
           const fileURL = URL.createObjectURL(file);
           //Open the URL on new Window
           window.open(fileURL);
-          // //New window and display pdf
+          //New window and display pdf
           // var a = document.createElement("a");
           // document.body.appendChild(a);
           // a.style = "display: none";
